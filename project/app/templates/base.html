@@ -31,29 +31,30 @@
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="d-flex justify-content-between align-items-center header-box">
-        <div class="logo">
+        <div class="logo p-2">
           <h1 class="text-light">
             <a href="{% url 'home' %}">
               <span>CHUI HYANG</span></a>
           </h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
-        <form action="forms/notify.php" method="post" role="form" class="mx-3 p-2 flex-grow-1">
-          <input type="text" name="name" class="form-control" id="name" placeholder="Perfumes, Brands, Notes, ..." required="required"/>
-        </form>
-        {% if user.is_authenticated %}
-          <div class="login-on">
-            <span class="bg-light px-3 mx-3 rounded">Welcome,
-              {{ user.username }}!</span>
-            <a href="{% url 'logout' %}" class="">Logout</a>
-          </div>
-        {% else %}
-          <div class="login-button">
-            <a href="{% url 'login' %}" class="">Login</a>
-          </div>
-          {% endif%}
 
+        <form action="" method="POST" id="searchbox-form" class="w-50 p-2">
+          {% csrf_token %}
+          <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-100" value="{{ searched }}">
+        </form>
+        <div class="ms-auto p-2">
+          {% if user.is_authenticated %}
+            <div class="login-on">
+              <span class="bg-light px-3 mx-3 rounded">Welcome,
+                {{ user.username }}!</span>
+              <a href="{% url 'logout' %}" class="">Logout</a>
+            </div>
+          {% else %}
+            <div class="login-button">
+              <a href="{% url 'login' %}" class="">Login</a>
+            </div>
+            {% endif%}
+          </div>
         </div>
         <ul id="category-container" class="d-flex">
 
@@ -66,7 +67,7 @@
           </li>
           <div class="v-line"></div>
           <li class="category-component p-2 flex-fill">
-            <a href="{% url 'taste-test' %}">What's my taste?</a>
+            <a href="{% url 'survey' %}">What's my taste?</a>
           </li>
           <div class="v-line"></div>
           <li class="category-component p-2 flex-fill">Reviews</li>

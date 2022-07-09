@@ -1,0 +1,26 @@
+#main {
+  margin-top: 120px;
+  height: 800px;
+}
+
+#survey-span {
+  color: white;
+  font-size: 30px;
+}
+.btn-outline-primary {
+  color: white;
+  border-color: white;
+}
+
+.btn-outline-primary:hover {
+  background-color: #31135c;
+  border-color: white;
+}
+
+.btn-outline-primary:focus {
+  box-shadow: none;
+}
+
+.btn-outline-primary:disabled {
+  color: white;
+}

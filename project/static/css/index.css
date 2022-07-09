@@ -40,7 +40,7 @@ h6,
 --------------------------------------------------------------*/
 #header {
   height: 80px;
-  padding: 20px 0;
+  padding: 20px 0 0 8px;
   position: relative;
   z-index: 10;
 }
@@ -178,7 +178,6 @@ h6,
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #0d182d;
   padding: 30px 0;
   color: #fff;
   font-size: 14px;

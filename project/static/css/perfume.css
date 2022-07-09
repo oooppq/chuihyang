@@ -1,0 +1,50 @@
+#main {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  /* countdown */
+}
+
+#perfume-page-container {
+  padding: 20px;
+  width: 90%;
+  background-color: white;
+}
+
+.main-spans {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 70px;
+}
+
+#image-and-info-container {
+  border-style: solid;
+  margin: 30px;
+  padding: 20px 0 20px 0;
+}
+
+#perfume-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#recommendation-container {
+  border-style: solid;
+  margin: 30px;
+  padding: 20px 0 20px 0;
+}
+
+#recommendation-image-container {
+  height: 100px;
+  list-style: none;
+}
+.recommendation-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#reviews-container {
+  border-style: solid;
+  margin: 30px;
+  padding: 20px 0 20px 0;
+}

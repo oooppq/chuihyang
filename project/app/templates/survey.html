@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+  <section id="main" class="d-flex flex-column  align-items-center p-5">
+    <span id="survey-span">원하시는 테스트를 골라주세요!</span>
+    <div id="servey-container" class="">
+      <div class="d-grid gap-2 my-5">
+        <button class="btn btn-outline-primary" type="button">
+          <span>당신의 취향을 알아보아요!</span>
+          <p>심플하고 직관적인 질문을 통해 당신의 취향을 찾아드려요.</p>
+        </button>
+        <button class="btn btn-outline-primary" disabled="disabled" type="button">
+          <span>새로운 향수를 알아보아요!</span>
+          <p>당신이 가진 향수를 기반으로 새로운 향수를 추천해드려요.</p>
+        </button>
+        <button class="btn btn-outline-primary" disabled="disabled" type="button">
+          <span>당신의 패션에 맞는 향수를 찾아보아요!</span>
+          <p>패션의 완성은 당신의 향기! 평소 패션에 맞는 향수를 추천해드려요.</p>
+        </button>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

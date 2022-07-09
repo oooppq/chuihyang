@@ -23,8 +23,8 @@ def about(request):
 def category(request):
     return render(request, 'category.html')
 
-def taste_test(request):
-    return render(request, 'taste-test.html')
+def survey(request):
+    return render(request, 'survey.html')
 
 def reviews(request):
     return render(request, 'reviews.html')

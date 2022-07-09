@@ -1,6 +1,5 @@
 #main {
-  margin-top: 120px;
-  height: 800px;
+  height: 600px;
 }
 
 #survey-span {
@@ -17,8 +16,13 @@
   border-color: white;
 }
 
+.btn-outline-primary:active {
+  background-color: #210c3e;
+}
 .btn-outline-primary:focus {
   box-shadow: none;
+  background-color: #31135c;
+  border-color: white;
 }
 
 .btn-outline-primary:disabled {

@@ -14,14 +14,16 @@ def post_check(request):
     return True
     
 def home(request):
+    flag = '0'
     if request.method == "GET":
-        return render(request, 'index.html',{'is_searched':'0'})
+        return render(request, 'index.html',{'is_searched':flag})
     elif request.method == "POST":
         searched = request.POST['searched']
+        if searched != "": flag = '1'
         perfumes = Perfume.objects.filter(name__contains=searched)
         if len(perfumes) >= 10:
             perfumes = perfumes[:10]
-        return render(request, 'index.html', {'perfumes':perfumes, 'searched':searched, 'is_searched':'1'})
+        return render(request, 'index.html', {'perfumes':perfumes, 'searched':searched, 'is_searched':flag})
         
 
 def perfumes(request, id):

@@ -11,3 +11,23 @@ function clickEvent(e) {
   }
   return;
 }
+// 왜 timeout으로 새로 로딩하면 focus가 안될까???
+// var form = document.getElementById("searchbox-form");
+// var input = document.getElementById("searchbox");
+// console.log(input["defaultValue"]);
+
+// function test() {
+//   form.submit();
+//   input.focus();
+//   document.getElementById("searchbox").focus();
+// }
+
+// input.addEventListener(
+//   "focus",
+//   () => {
+//     setTimeout(() => {
+//       test();
+//     }, 1000);
+//   },
+//   true
+// );

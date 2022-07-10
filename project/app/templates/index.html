@@ -69,7 +69,7 @@
 
       <!-- ======= Main Section ======= -->
       <section id="main">
-        <div id="main-container" class="d-flex flex-column align-items-center ">
+        <div id="main-container" class="d-flex flex-column align-items-center w-100 px-0">
           <a href="{% url 'home' %}" class="text-center">
             <h1>취향</h1>
             <h2>Find Everything About Perfumes</h2>
@@ -87,10 +87,10 @@
                   <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="form-control w-75" value="{{ searched }}">
                 </div>
                 {% if is_searched == '1' %}
-                  <div class="searched-list" style="position:absolute">
+                  <div class="searched-list d-flex flex-column align-items-center" style="position:absolute">
                       {% if perfumes %}
                         {% for perfume in perfumes %}
-                        <div class="d-flex">
+                        <div class="d-flex w-50 searched-list-inner">
                           <div class="w-25"></div>
                           <a href="{% url 'perfumes' perfume.pk %}" class="mx-3 my-0 w-75">{{ perfume.name }}</a><br>
                         </div>

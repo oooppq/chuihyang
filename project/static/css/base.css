@@ -51,13 +51,13 @@ h6,
 }
 
 .searched-list {
-  width: 712px;
+  /* width: 712px; */
+  width: 48.3%;
   background-color: white;
   text-align: left;
   padding-bottom: 10px;
   border-radius: 0 0 5px 5px;
   z-index: 99;
-  border-style: solid;
 }
 
 .searched-list a {

@@ -112,13 +112,21 @@ h6,
 }
 
 .searched-list {
-  width: 627.398px;
-  background-color: white;
+  /* width: 43%; */
+  /* left: 29.5%;
+  right: 29.5%; */
+  left: 0;
+  right: 0;
   text-align: left;
   padding-bottom: 10px;
-  border-radius: 0 0 5px 5px;
+
   z-index: 99;
-  border-style: solid;
+}
+
+.searched-list-inner {
+  background-color: white;
+  padding: 0 16px 0 16px;
+  background-clip: content-box;
 }
 
 .searched-list a {

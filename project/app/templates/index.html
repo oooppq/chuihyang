@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <title>취향 - find yours</title>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicons/apple-icon-60x60.png'%}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicons/apple-icon-76x76.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-icon-114x114.png'%}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-icon-120x120.png'%}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png'%}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png'%}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicons/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png'%}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet"/>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet"/>
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/index.css'%}" rel="stylesheet"/>
+
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="logo">
+          <h1 class="text-light">
+            <a href="{% url 'home' %}">
+              <span>CHUI HYANG</span></a>
+          </h1>
+        </div>
+
+        {% if user.is_authenticated %}
+          <div class="login-on">
+            <span class="bg-light px-3 mx-3 rounded">Welcome,
+              {{ user.username }}!</span>
+            <a href="{% url 'logout' %}" class="">Logout</a>
+          </div>
+        {% else %}
+          <div class="login-button">
+            <a href="{% url 'login' %}" class="">Login</a>
+          </div>
+          {% endif%}
+
+        </div>
+      </header>
+      <!-- End #header -->
+
+      <!-- ======= Main Section ======= -->
+      <section id="main">
+        <div id="main-container" class="d-flex flex-column align-items-center w-100 px-0">
+          <a href="{% url 'home' %}" class="text-center">
+            <h1>취향</h1>
+            <h2>Find Everything About Perfumes</h2>
+          </a>
+          <form action="" method="POST" id="searchbox-form" class="w-50 p-3 py-0">
+            {% csrf_token %}
+              <div style="postion:relative" class="w-100">
+                <div class="input-group">
+                  <select class="form-select w-25">
+                    <option selected>통합검색</option>
+                    <option value="1">Perfume</option>
+                    <option value="2">Brand</option>
+                    <option value="3">Note</option>
+                  </select>
+                  <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="form-control w-75" value="{{ searched }}">
+                </div>
+                {% if is_searched == '1' %}
+                  <div class="searched-list d-flex flex-column align-items-center" style="position:absolute">
+                      {% if perfumes %}
+                        {% for perfume in perfumes %}
+                        <div class="d-flex w-50 searched-list-inner">
+                          <div class="w-25"></div>
+                          <a href="{% url 'perfumes' perfume.pk %}" class="mx-3 my-0 w-75">{{ perfume.name }}</a><br>
+                        </div>
+                        {% endfor %}
+                      {% else %}
+                      <div class="d-flex w-50 searched-list-inner">
+                        <p class="py-2">검색 결과가 존재하지 않습니다.</p>
+                      </div>
+                      {% endif %}
+                  </div>
+                {% endif %}
+              </div>
+          </form>
+
+          <ul id="category-list" class="d-flex my-3">
+            <a href="{% url 'about' %}">
+              <li class="category p-2 flex-fill">About</li>
+            </a>
+            <div class="v-line"></div>
+            <a href="{% url 'category' %}">
+              <li class="category p-2 flex-fill">Category</li>
+            </a>
+            <div class="v-line"></div>
+            <a href="{% url 'survey' %}" id="taste-a">
+              <li id="taste-component" class="category p-2 flex-fill">
+                What's my taste?
+              </li>
+            </a>
+            <div class="v-line"></div>
+            <a href="{% url 'reviews' %}">
+              <li class="category p-2 flex-fill">Reviews</li>
+            </a>
+            <div class="v-line"></div>
+            <a href="{% url 'ranking' %}">
+              <li class="category p-2 flex-fill">Ranking</li>
+            </a>
+          </ul>
+          {% if user.is_authenticated %}
+            <div id="recommendation-container" class="my-3">
+              <h3>Today's Recommendation</h3>
+              <span>고객님의 취향을 기반으로 추천드리는 향수들이에요!</span>
+              <div class="d-flex my-3">
+                <div class="card mx-3" style="width: 18rem;">
+                  <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card mx-3" style="width: 18rem;">
+                  <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                <div class="card mx-3" style="width: 18rem;">
+                  <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+      </section>
+      {% comment %} <div class="empty-div"></div> {% endcomment %}
+      <!-- End Main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright
+            <strong>
+              <span>ChuiHyang</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by
+            <a href="">ChuiHyuang</a>
+          </div>
+        </div>
+      </footer>
+      <!-- End #footer -->
+
+      <!-- Vendor JS Files -->
+      <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+      <!-- Template Main JS File -->
+      <script src="{% static 'js/main.js'%}"></script>
+    </body>
+
+  </html>

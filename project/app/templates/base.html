@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <title>취향 - find yours</title>
+    <meta content="" name="description"/>
+    <meta content="" name="keywords"/>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicons/apple-icon-60x60.png'%}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicons/apple-icon-76x76.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-icon-114x114.png'%}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-icon-120x120.png'%}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png'%}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png'%}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicons/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png'%}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet"/>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet"/>
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/base.css'%}" rel="stylesheet"/>
+
+    <!-- ======================================================= * Template Name: WeBuild - v4.6.1 * Template URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/ * Author: BootstrapMade.com * License: https://bootstrapmade.com/license/ ======================================================== -->
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="d-flex justify-content-between align-items-center header-box">
+        <div class="logo p-2">
+          <h1 class="text-light">
+            <a href="{% url 'home' %}">
+              <span>CHUI HYANG</span></a>
+          </h1>
+        </div>
+        <form action="" method="POST" id="searchbox-form" class="w-50 p-3 py-0">
+          {% csrf_token %}
+            <div style="postion:relative" class="w-100">
+              <div class="input-group">
+                <select class="form-select w-25">
+                  <option selected>통합검색</option>
+                  <option value="1">Perfume</option>
+                  <option value="2">Brand</option>
+                  <option value="3">Note</option>
+                </select>
+                <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="form-control w-75" value="{{ searched }}">
+              </div>
+              {% if is_searched == '1' %}
+                <div class="searched-list" style="position:absolute">
+                    {% if perfumes %}
+                      {% for perfume in perfumes %}
+                      <div class="d-flex">
+                        <div class="w-25"></div>
+                        <a href="{% url 'perfumes' perfume.pk %}" class="mx-3 my-0 w-75">{{ perfume.name }}</a><br>
+                      </div>
+                      {% endfor %}
+                    {% else %}
+                      <p class="py-2">검색 결과가 존재하지 않습니다.</p>
+                    {% endif %}
+                </div>
+              {% endif %}
+            </div>
+        </form>
+        {% comment %} <form action="" method="POST" id="searchbox-form" class="w-50 p-2">
+          {% csrf_token %}
+          <div style="position:relative">
+            <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-100" value="{{ searched }}">
+            <div style="position:absolute">
+              <p>asds</p>
+              <p>asds</p>
+              <p>asds</p>
+            </div>
+          </div>
+
+        </form> {% endcomment %}
+        <div class="ms-auto p-2">
+          {% if user.is_authenticated %}
+            <div class="login-on">
+              <span class="bg-light px-3 mx-3 rounded">Welcome,
+                {{ user.username }}!</span>
+              <a href="{% url 'logout' %}" class="">Logout</a>
+            </div>
+          {% else %}
+            <div class="login-button">
+              <a href="{% url 'login' %}" class="">Login</a>
+            </div>
+            {% endif%}
+          </div>
+        </div>
+        <ul id="category-container" class="d-flex">
+
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'about' %}">About</a>
+          </li>
+          <div class="v-line"></div>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'category' %}">Category</a>
+          </li>
+          <div class="v-line"></div>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'survey' %}">What's my taste?</a>
+          </li>
+          <div class="v-line"></div>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'reviews' %}">Reviews</a>
+          </li>
+          <div class="v-line"></div>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'ranking' %}">Ranking</a>
+          </li>
+        </ul>
+        <hr/>
+      </header>
+      <!-- End #header -->
+
+      {%block content %}{% endblock %}
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright
+            <strong>
+              <span>ChuiHyang</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by
+            <a href="">ChuiHyuang</a>
+          </div>
+        </div>
+      </footer>
+      <!-- End #footer -->
+
+      <!-- Vendor JS Files -->
+      <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+      <!-- Template Main JS File -->
+      <script src="{% static 'js/main.js'%}"></script>
+    </body>
+
+  </html>

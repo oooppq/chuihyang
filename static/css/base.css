@@ -1,0 +1,121 @@
+/**
+* Template Name: WeBuild - v4.6.1
+* Template URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  background: url("../img/bg-img.jpg") top center;
+  background-size: cover;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #a086c4;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-primary {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+  # Header
+  --------------------------------------------------------------*/
+#header {
+  height: 80px;
+  padding: 20px 0;
+}
+
+.header-box {
+  height: 36px;
+  padding: 0 12px;
+}
+
+#header .logo h1 {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+#header .logo h1 a,
+#header .logo h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+#header .contact-link a {
+  color: #fff;
+  padding-right: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#header .contact-link a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  #header .logo h1 {
+    font-size: 28px;
+    padding: 8px 0;
+  }
+}
+
+#category-container {
+  list-style: none;
+  color: white;
+  padding: 0;
+  margin: 10px 0 0 10px;
+  width: 900px;
+}
+
+hr {
+  color: white;
+}
+
+/*--------------------------------------------------------------
+  # main Section
+  --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+  # Footer
+  --------------------------------------------------------------*/
+#footer {
+  padding: 30px 0;
+  color: #fff;
+  font-size: 14px;
+}
+#footer .copyright {
+  text-align: center;
+}
+#footer .credits {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+#footer .credits a {
+  color: #72a8bf;
+}

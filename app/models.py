@@ -42,7 +42,7 @@ class Perfume(models.Model):
     }
     FLAVOR_CHOICES = {
         ('floral', 'floral'),
-        ('woody', 'woody'),
+        ('Woody', 'woody'),
         ('fresh', 'fresh'),
         ('oriental', 'oriental')
     }

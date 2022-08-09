@@ -3,5 +3,7 @@ from .models import Perfume
 
 # Register your models here.
 admin.site.register(Perfume)
+admin.site.register(Perfume)
+admin.site.register(Perfume)
 
 

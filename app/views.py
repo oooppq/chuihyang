@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Perfume, Review
 from .forms import ReviewForm
@@ -34,6 +35,22 @@ def home(request):
             return render(request, 'search_result.html', {'perfumes': perfumes})
         # return redirect('perfumes', perfume[0].pk)
 
+def filter_search(request):
+    season_list = request.GET.getlist('season_list')  # ['summer']
+    flavor_list = request.GET.getlist('flavor_list') # ['woody']
+    gender_list = request.GET.getlist('gender_list') # ['man']
+    searched = request.GET['searched']
+    perfumes = Perfume.objects.filter(name__contains=searched)
+
+    query = Q()
+    for Season in season_list:
+        query = query | Q(season=Season)
+    for Flavor in flavor_list:
+        query = query | Q(flavor=Flavor)
+    for Gender in gender_list:
+        query = query | Q(gender=Gender)
+    perfumes = perfumes.objects.filter(query)
+    return render(request, 'searched-list.html', {'perfumes': perfumes})
 
 def perfumes(request, id):
     perfume = get_object_or_404(Perfume, id=id)
@@ -68,3 +85,18 @@ def reviews(request):
 
 def ranking(request):
     return render(request, 'ranking.html')
+
+#### show real time search result ####
+def search(request):
+    searched = request.GET['searched']
+    perfumes = Perfume.objects.filter(name__contains=searched)
+    perfumeList = [(p.id, p.name) for p in perfumes[:10]]
+    data = {'searchedList': perfumeList}
+    return JsonResponse(data)
+
+#### search result page ####
+def searched(request):
+    searched = request.GET['searched']
+    print(searched)
+    perfumes = Perfume.objects.filter(name__contains=searched)
+    return render(request, 'searched-list.html', {'searched':searched,'perfumes':perfumes})

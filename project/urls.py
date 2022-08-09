@@ -32,4 +32,6 @@ urlpatterns = [
     path('survey/', views.survey, name='survey'),
     path('reviews/', views.reviews, name='reviews'),
     path('ranking/', views.ranking, name='ranking'),
+    path('search/', views.search, name='search'),
+    path('searched/', views.searched, name='searched'),
 ]

@@ -1,10 +1,3 @@
-/**
-* Template Name: WeBuild - v4.6.1
-* Template URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -39,7 +32,7 @@ h6,
   # Header
   --------------------------------------------------------------*/
 #header {
-  height: 80px;
+  /* height: 80px; */
   padding: 20px 0;
 }
 
@@ -56,34 +49,38 @@ h6,
   font-weight: 300;
   letter-spacing: 3px;
 }
-#header .logo h1 a,
-#header .logo h1 a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-#header .logo img {
-  padding: 0;
-  margin: 0;
-  max-height: 40px;
-}
-#header .contact-link a {
-  color: #fff;
-  padding-right: 10px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-#header .contact-link a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 768px) {
-  #header .logo h1 {
-    font-size: 28px;
-    padding: 8px 0;
-  }
+
+#under-search {
+  position: relative;
+  z-index: 1;
 }
 
+.searched-list {
+  /* width: 712px; */
+  width: 48.3%;
+  background-color: white;
+  text-align: left;
+  padding-bottom: 10px;
+  border-radius: 0 0 5px 5px;
+  z-index: 99;
+  /* margin-left: 295px; */
+  position: relative;
+}
+
+.searched-list a {
+  color: gray;
+  font-size: 14px;
+}
+
+.searched-list a:hover {
+  color: black;
+  font-size: 14px;
+}
 #category-container {
+  position: absolute;
+}
+
+#category-container ul {
   list-style: none;
   color: white;
   padding: 0;
@@ -96,15 +93,11 @@ hr {
 }
 
 /*--------------------------------------------------------------
-  # main Section
-  --------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
 #footer {
   padding: 30px 0;
-  color: #fff;
+  color: #444;
   font-size: 14px;
 }
 #footer .copyright {
@@ -117,5 +110,5 @@ hr {
   color: #fff;
 }
 #footer .credits a {
-  color: #72a8bf;
+  color: #a086c4;
 }

@@ -1,10 +1,3 @@
-/**
- * Template Name: WeBuild - v4.6.1
- * Template URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 var body = document.querySelector("body");
 body.addEventListener("click", clickEvent);
 
@@ -12,7 +5,48 @@ function clickEvent(e) {
   var target = e.target;
   if (target != e.currentTarget.querySelector(".searched-list")) {
     var sl = document.querySelector(".searched-list");
-    sl.style.display = "none";
+    if (sl) {
+      sl.classList.remove("d-flex");
+      sl.style.display = "none";
+    }
   }
   return;
 }
+
+$("#searchbox").on("propertychange change keyup paste", function () {
+  const value = $(this).val();
+  $.ajax({
+    url: "../search",
+    type: "GET",
+    data: {
+      searched: value,
+    },
+    datatype: "json",
+    success: function (data) {
+      lastList = document.querySelector(".searched-list");
+      if (lastList) lastList.remove();
+      var outerDiv = document.createElement("div");
+      outerDiv.style.color = "black";
+      outerDiv.classList.add(
+        "searched-list",
+        "w-50",
+        "px-3",
+        "d-flex",
+        "flex-column",
+        "align-items-center"
+      );
+
+      for (let p of data["searchedList"]) {
+        let innerDiv = document.createElement("div");
+        innerDiv.classList.add("d-flex", "w-50", "searched-component", "ps-3");
+        let link = document.createElement("a");
+        link.href = "/perfumes/" + p[0];
+        link.innerHTML = p[1];
+        innerDiv.appendChild(link);
+        outerDiv.appendChild(innerDiv);
+      }
+
+      document.querySelector("#under-search").appendChild(outerDiv);
+    },
+  });
+});

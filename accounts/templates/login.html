@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section id="main" class="text-center">
+    <form action="" method="POST" id="login-form">
+      {% csrf_token %}
+      <div class="mb-3 row">
+        <div class="col-sm-10">
+          <input type="username" class="form-control-lg" name="username" placeholder="username">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-sm-10">
+          <input type="password" class="form-control-lg" name="password" placeholder="password">
+        </div>
+      </div>
+      <input type="submit" value="LOGIN" class="btn btn-outline-light">
+    </form>
+  </section>
+{% endblock %}

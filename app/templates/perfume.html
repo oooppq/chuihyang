@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/perfume.css' %}">
+<section id="main">
+  <div id="perfume-page-container">
+    <span class="main-spans">PERFUME</span>
+    <div id="image-and-info-container" class="d-flex justify-content-around">
+      <div class="card" style="width: 25rem">
+        <img src="{% static 'img/santal33.jpg'%}" class="" alt="perfume-image" />
+        <div class="card-body">
+          <p class="card-text">
+            {{ perfume.country }}
+          </p>
+        </div>
+      </div>
+      <div id="perfume-info" class="">
+        <span id="perfume-title">{{ perfume.name }}
+          -
+          {{perfume.brand}}</span>
+        <div id="perfume-detail">
+          <div class="alert alert-primary" role="alert">
+            {{perfume.name}}
+          </div>
+          <div class="alert alert-secondary" role="alert">
+            A simple secondary alert—check it out!
+          </div>
+
+          <div class="alert alert-warning" role="alert">
+            A simple warning alert—check it out!
+          </div>
+          <div class="alert alert-info" role="alert">
+            A simple info alert—check it out!
+          </div>
+          <div class="alert alert-dark" role="alert">
+            A simple dark alert—check it out!
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="main-spans">RECOMMENDATION</span>
+    <div id="recommendation-container">
+      <ul id="recommendation-image-container" class="d-flex justify-content-around">
+        <li>
+          <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image" />
+        </li>
+        <li>
+          <img src="{% static 'img/hwyl.jpg'%}" alt="fleur-de-peau" class="recommendation-image" />
+        </li>
+        <li>
+          <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image" />
+        </li>
+        <li>
+          <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image" />
+        </li>
+        <li>
+          <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image" />
+        </li>
+      </ul>
+    </div>
+    <span class="main-spans">REVIEWS</span>
+    <div id="reviews-container">
+      <form method="POST" action="{% url 'new_review' perfume.pk  %}">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ review_form }}
+        </div>
+        <input type="submit" value="리뷰 입력">
+      </form>
+      <hr>
+      {% for review in perfume.review_set.all %}
+      <span class="badge rounded-pill bg-light">{{ review.date }}</span>
+      {{ review.content }}
+      <hr>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -19,6 +19,7 @@
 
 #image-and-info-container {
   border-style: solid;
+  border-color: darkblue;
   margin: 30px;
   padding: 20px 0 20px 0;
 }
@@ -28,8 +29,15 @@
   font-weight: bold;
 }
 
+#perfume-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
 #recommendation-container {
   border-style: solid;
+  border-color: darkblue;
   margin: 30px;
   padding: 20px 0 20px 0;
 }
@@ -38,13 +46,27 @@
   height: 100px;
   list-style: none;
 }
+
 .recommendation-image {
   max-width: 100%;
   max-height: 100%;
 }
 
 #reviews-container {
-  border-style: solid;
+  /* border-style: solid; */
   margin: 30px;
   padding: 20px 0 20px 0;
+}
+
+/* 검색 결과 페이지 관련 추가 */
+
+
+.perfume-item {
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.perfume-item .perfume-img {
+  padding: 0 60px;
+  margin-bottom: 15px;
 }

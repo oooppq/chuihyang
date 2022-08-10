@@ -61,7 +61,7 @@ class Perfume(models.Model):
     # 디테일 페이지 필수 정보
     name = models.CharField(max_length=50)
     image = models.ImageField(blank=True, null=True,
-                              upload_to='perfume_images/')
+                              upload_to='images/')
     brand = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     perfumers = models.ManyToManyField(Perfumer)
@@ -90,12 +90,27 @@ class Perfume(models.Model):
 
 
 class Review(models.Model):
-    content = models.TextField()
+    # 선택지 정리
+    POWER_CHOICES = {
+        ('good', 'good'),
+        ('moderate', 'moderate'),
+        ('bad', 'bad'),
+    }
+
+    # 필수 정보
     date = models.DateTimeField(auto_now_add=True)
     perfume = models.ForeignKey(
         Perfume, null=True, blank=True, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              null=True, blank=True, on_delete=models.SET_NULL)
+    # 세부 정보
+    power = models.CharField(
+        choices=POWER_CHOICES, max_length=20, null=True)
+    type_explain = models.TextField(null=True)  # 타입 ex. 달콤한
+    content = models.TextField()
+    first_scent = models.TextField(null=True)  # 시향
+    put_scent = models.TextField(null=True)  # 착향
+    rest_scent = models.TextField(null=True)  # 잔향
 
     def __str__(self):
         return self.content

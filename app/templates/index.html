@@ -62,7 +62,7 @@
             <a href="{% url 'category' %}">Category</a>
           </li>
           <li class="category-component p-2 flex-fill">
-            <a href="{% url 'survey' %}">What's my taste?</a>
+            <a href="{% url 'survey_home' %}">What's my taste?</a>
           </li>
           <li class="category-component p-2 flex-fill">
             <a href="{% url 'reviews' %}">Reviews</a>
@@ -92,24 +92,24 @@
                   <li>
                     <a class="dropdown-item" href="#">
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="season_list" value="spring">
-                        <label class="form-check-label" for="inlineCheckbox1">봄</label>
+                        <input id='spring' class="form-check-input" type="checkbox" name="season_list" value="spring">
+                        <label class="form-check-label" for="spring">봄</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="season_list" value="summer">
-                        <label class="form-check-label" for="inlineCheckbox2">여름</label>
+                        <input id='summer' class="form-check-input" type="checkbox" name="season_list" value="summer">
+                        <label class="form-check-label" for="summer">여름</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="season_list" value="fall">
-                        <label class="form-check-label" for="inlineCheckbox3">가을</label>
+                        <input id='fall' class="form-check-input" type="checkbox" name="season_list" value="fall">
+                        <label class="form-check-label" for="fall">가을</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="season_list" value="winter">
-                        <label class="form-check-label" for="inlineCheckbox3">겨울</label>
+                        <input id='winter' class="form-check-input" type="checkbox" name="season_list" value="winter">
+                        <label class="form-check-label" for="winter">겨울</label>
                       </div>
-
                     </a>
                   </li>
+                  <hr>
                   <li>
                     <a class="dropdown-item" href="#">
                       <div class="form-check form-check-inline">
@@ -130,6 +130,7 @@
                       </div>
                     </a>
                   </li>
+                  <hr>
                   <li>
                     <a class="dropdown-item" href="#">
 

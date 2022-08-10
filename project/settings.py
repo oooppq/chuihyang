@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'import_export', 
     'app',
     'accounts',
+    'survey',
 ]
 
 MIDDLEWARE = [

@@ -63,7 +63,7 @@ class Perfume(models.Model):
     image = models.ImageField(blank=True, null=True,
                               upload_to='images/')
     brand = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    country = models.CharField(max_length=50, null=True)
     perfumers = models.ManyToManyField(Perfumer)
 
     notes_top = models.ManyToManyField(Note_top)

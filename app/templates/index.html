@@ -145,12 +145,12 @@
                   </li>
                 </ul>
               </div>
-              <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-75" value="{{ searched }}">
+              <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-75 form-control" value="{{ searched }}">
             </div>
           </form>
           <div id='under-search' class='w-100 d-flex flex-column align-items-center'>
             {% if user.is_authenticated %}
-              <div id="recommendation-container" class="my-3">
+              <div id="recommendation-container">
                 <h3>Today's Recommendation</h3>
                 <span>고객님의 취향을 기반으로 추천드리는 향수들이에요!</span>
                 <div class="d-flex my-3">

@@ -4,55 +4,14 @@ from .models import Perfume, Review
 from .forms import ReviewForm
 from django.utils import timezone
 
+# library for query
 from django.db.models import Q
+
+from django.core.paginator import Paginator
 
 
 def home(request):
-    if request.method == "GET":
-        return render(request, 'index.html', {'is_searched': '0'})
-    elif request.method == "POST":
-        season_list = request.POST.getlist('season_list')  # ['summer']
-        flavor_list = request.POST.getlist('flavor_list')  # ['woody']
-        gender_list = request.POST.getlist('gender_list')  # ['man']
-
-        searched = request.POST['searched']
-
-        if searched:
-            perfumes = Perfume.objects.filter(name__contains=searched)
-            if len(perfumes) >= 10:
-                perfumes = perfumes[:10]
-            return render(request, 'index.html', {'perfumes': perfumes, 'searched': searched, 'is_searched': '1'})
-
-        else:
-            query = Q()
-            for Season in season_list:
-                query = query | Q(season=Season)
-            for Flavor in flavor_list:
-                query = query | Q(flavor=Flavor)
-            for Gender in gender_list:
-                query = query | Q(gender=Gender)
-            if query & Q() == Q():  # 아무 옵션도 선택하지 않고 필터 검색을 했을 경우
-                return redirect('home')
-            perfumes = Perfume.objects.filter(query)
-            return render(request, 'search_result.html', {'perfumes': perfumes})
-        # return redirect('perfumes', perfume[0].pk)
-
-def filter_search(request):
-    season_list = request.GET.getlist('season_list')  # ['summer']
-    flavor_list = request.GET.getlist('flavor_list') # ['woody']
-    gender_list = request.GET.getlist('gender_list') # ['man']
-    searched = request.GET['searched']
-    perfumes = Perfume.objects.filter(name__contains=searched)
-
-    query = Q()
-    for Season in season_list:
-        query = query | Q(season=Season)
-    for Flavor in flavor_list:
-        query = query | Q(flavor=Flavor)
-    for Gender in gender_list:
-        query = query | Q(gender=Gender)
-    perfumes = perfumes.objects.filter(query)
-    return render(request, 'searched-list.html', {'perfumes': perfumes})
+    return render(request, 'index.html')
 
 def perfumes(request, id):
     # review_form = ReviewForm()
@@ -121,7 +80,30 @@ def search(request):
 
 #### search result page ####
 def searched(request):
+    season_list = request.GET.getlist('season_list')  # ['summer']
+    flavor_list = request.GET.getlist('flavor_list') # ['woody']
+    gender_list = request.GET.getlist('gender_list') # ['man']
+    # perfumes = Perfume.objects.filter(name__contains=searched)
+
+    query = Q()
+    for i, Season in enumerate(season_list):
+        if i == 0: query = query & Q(season=Season)
+        else: query = query | Q(season=Season)
+        
+    for i, Flavor in enumerate(flavor_list):
+        if i == 0: query = query & Q(flavor=Flavor)
+        else: query = query | Q(flavor=Flavor)
+        
+    for i, Gender in enumerate(gender_list):
+        if i == 0: query = query & Q(gender=Gender)
+        else: query = query | Q(gender=Gender)
+        
     searched = request.GET['searched']
-    print(searched)
-    perfumes = Perfume.objects.filter(name__contains=searched)
-    return render(request, 'searched-list.html', {'searched':searched,'perfumes':perfumes})
+    if len(searched.replace(' ', '')):
+        query = query & Q(name__contains=searched)
+    print(query)
+    perfumes = Perfume.objects.filter(query)
+    paginator = Paginator(perfumes, 10)
+    pageNum = request.GET.get('page')
+    perfumes = paginator.get_page(pageNum)
+    return render(request, 'search-result.html', {'searched':searched, 'perfumes': perfumes})

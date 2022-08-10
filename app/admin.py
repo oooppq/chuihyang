@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Note_middle, Perfume, Review, Note_base, Note_top, Note_middle, Perfumer
-from import_export.admin import ExportActionModelAdmin, ImportExportMixin, ImportMixin
+# from import_export.admin import ExportActionModelAdmin, ImportExportMixin, ImportMixin
 
-class PerfumeAdmin(ImportExportMixin, admin.ModelAdmin):
+class PerfumeAdmin(admin.ModelAdmin):
     pass
 
 # Register your models here.

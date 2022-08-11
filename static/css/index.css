@@ -41,7 +41,7 @@ h6,
   padding: 0 12px;
 }
 
-#header .logo h1 {
+#header .logo {
   font-size: 36px;
   margin: 0;
   padding: 0;
@@ -50,6 +50,48 @@ h6,
   letter-spacing: 3px;
 }
 
+#side-navbar {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  #header .logo {
+    display: none;
+  }
+
+  #side-navbar {
+    display: inline;
+  }
+
+  #side-navbar .logo {
+    font-size: 20px;
+    margin: 0;
+    padding-left: 12px;
+    line-height: 1;
+    font-weight: 200;
+    letter-spacing: 3px;
+  }
+  #nav {
+    display: none;
+  }
+
+  .login-button {
+    display: none;
+  }
+}
+
+.searchbox-form {
+  width: 50%;
+  min-width: 400px;
+}
+
+.dropdown {
+  width: 20%;
+}
+
+.searchbox {
+  width: 80%;
+}
 .searched-list {
   /* width: 712px; */
   width: 48.3%;
@@ -82,12 +124,6 @@ hr {
   color: black;
 }
 
-@media (max-width: 768px) {
-  #header .logo h1 {
-    font-size: 28px;
-    padding: 8px 0;
-  }
-}
 /*--------------------------------------------------------------
 # main Section
 --------------------------------------------------------------*/

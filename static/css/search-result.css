@@ -29,3 +29,21 @@
   height: 80px;
   width: 80px;
 }
+
+@media (max-width: 820px) {
+  .main-spans {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  .perfume-item {
+    height: 80px;
+  }
+
+  .perfume-item .perfume-img {
+    height: 80px;
+    width: 80px;
+  }
+}

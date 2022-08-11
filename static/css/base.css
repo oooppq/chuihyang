@@ -41,7 +41,7 @@ h6,
   padding: 0 12px;
 }
 
-#header .logo h1 {
+#header .logo {
   font-size: 36px;
   margin: 0;
   padding: 0;
@@ -53,6 +53,51 @@ h6,
 #under-search {
   position: relative;
   z-index: 1;
+}
+
+.mobile-searchbox-form {
+  display: none;
+}
+
+#side-navbar {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  #header {
+    padding-bottom: 0;
+  }
+  #header .logo {
+    display: none;
+  }
+
+  #header .searchbox-form {
+    display: none;
+  }
+  .mobile-searchbox-form {
+    display: inline;
+    margin: 0 20px 0 20px;
+  }
+
+  #side-navbar {
+    display: inline;
+  }
+
+  #side-navbar .logo {
+    font-size: 20px;
+    margin: 0;
+    padding-left: 12px;
+    line-height: 1;
+    font-weight: 200;
+    letter-spacing: 3px;
+  }
+  #under-search {
+    display: none;
+  }
+
+  .login-button {
+    display: none;
+  }
 }
 
 .searched-list {
@@ -78,6 +123,7 @@ h6,
 }
 #category-container {
   position: absolute;
+  width: 100%;
 }
 
 #category-container ul {

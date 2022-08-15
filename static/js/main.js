@@ -27,21 +27,26 @@ $(".searchbox").on("propertychange change keyup paste", function () {
       if (lastList) lastList.remove();
       var outerDiv = document.createElement("div");
       outerDiv.style.color = "black";
+      // outerDiv.style.position = "absolute";
       outerDiv.classList.add(
         "searched-list",
-        "w-50",
-        "px-3",
+        // "px-3",
         "d-flex",
-        "flex-column",
-        "align-items-center"
+        "flex-column"
       );
 
       for (let p of data["searchedList"]) {
         let innerDiv = document.createElement("div");
-        innerDiv.classList.add("d-flex", "w-50", "searched-component", "ps-3");
+        innerDiv.classList.add("d-flex", "searched-component", "ps-3");
+        let emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("empty-component");
+        emptyDiv.innerHTML = "empty";
         let link = document.createElement("a");
         link.href = "/perfumes/" + p[0];
         link.innerHTML = p[1];
+        link.style.width = "80%";
+        link.style.textAlign = "left";
+        innerDiv.appendChild(emptyDiv);
         innerDiv.appendChild(link);
         outerDiv.appendChild(innerDiv);
       }

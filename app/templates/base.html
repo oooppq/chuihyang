@@ -20,10 +20,10 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png'%}">
     <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png'%}">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png'%}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static '/android-icon-192x192.png'%}">
-    <link rel="icon" type="image/png" sizes="32x32" href="/{% static 'img/faviconsfavicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'img/favicons/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicons/favicon-32x32.png'%}">
     <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png'%}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon-16x16.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicons/favicon-16x16.png'%}">
     <link rel="manifest" href="{% static 'img/favicons/manifest.json'%}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png'%}">
@@ -60,7 +60,7 @@
           <div class='input-group w-100'>
             <div class="dropdown w-25">
               <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                필터 검색
+                필터
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
@@ -164,127 +164,128 @@
             <hr>
           </div>
         </div>
-      </header>
-      <!-- End #header -->
-      <form action="{% url 'searched' %}" class="mobile-searchbox-form p-3 py-0">
-        <div class='input-group w-100'>
-          <div class="dropdown w-25">
-            <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              검색 필터
+        <!-- side-navbar for mobile -->
+        <nav id='side-navbar' class="navbar navbar-dark  fixed-top mt-2">
+          <div class="container-fluid">
+            <a href="{% url 'home' %}">
+              <span class="mobile-logo text-light">
+                CHUI HYANG
+              </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+              <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
-                <a class="dropdown-item" href="#">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="season_list" value="spring">
-                    <label class="form-check-label" for="inlineCheckbox1">봄</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="season_list" value="summer">
-                    <label class="form-check-label" for="inlineCheckbox2">여름</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="season_list" value="fall">
-                    <label class="form-check-label" for="inlineCheckbox3">가을</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="season_list" value="winter">
-                    <label class="form-check-label" for="inlineCheckbox3">겨울</label>
-                  </div>
+            <div class="offcanvas offcanvas-end text-bg-dark bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
 
-                </a>
-              </li>
-              <hr>
-              <li>
-                <a class="dropdown-item" href="#">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="flavor_list" value="floral">
-                    <label class="form-check-label" for="inlineCheckbox1">floral</label>
+                {% if user.is_authenticated %}
+                  <div class="login-on offcanvas-title">
+                    <span class='fc-light'>Welcome,
+                      {{ user.username }}!</span>
+                    <a href="{% url 'logout' %}" class="">Logout</a>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="flavor_list" value="woody">
-                    <label class="form-check-label" for="inlineCheckbox2">woody</label>
+                {% else %}
+                  <div class="login-off offcanvas-title">
+                    <a href="{% url 'login' %}" class="">Login</a>
                   </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="flavor_list" value="fresh">
-                    <label class="form-check-label" for="inlineCheckbox3">fresh</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="flavor_list" value="oriental">
-                    <label class="form-check-label" for="inlineCheckbox3">oriental</label>
-                  </div>
-                </a>
-              </li>
-              <hr>
-              <li>
-                <a class="dropdown-item" href="#">
+                  {% endif%}
 
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="gender_list" value="woman">
-                    <label class="form-check-label" for="inlineCheckbox3">woman</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="gender_list" value="man">
-                    <label class="form-check-label" for="inlineCheckbox3">man</label>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-75 form-control" value="{{ searched }}">
-        </div>
-      </form>
-      <!-- side-navbar for mobile -->
-      <nav id='side-navbar' class="navbar navbar-dark  fixed-top mt-2">
-        <div class="container-fluid">
-          <a href="{% url 'home' %}">
-            <span class="logo text-light">
-              CHUI HYANG
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end text-bg-dark bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
-
-              {% if user.is_authenticated %}
-                <div class="login-on offcanvas-title">
-                  <span class='fc-light'>Welcome,
-                    {{ user.username }}!</span>
-                  <a href="{% url 'logout' %}" class="">Logout</a>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-              {% else %}
-                <div class="login-off offcanvas-title">
-                  <a href="{% url 'login' %}" class="">Login</a>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'category' %}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'survey_home' %}">What's my taste?</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'reviews' %}">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="{% url 'ranking' %}">Ranking</a>
+                    </li>
+                  </ul>
                 </div>
-                {% endif%}
-
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+            </div>
+          </nav>
+          <!-- end #side-navbar -->
+          <form action="{% url 'searched' %}" class="mobile-searchbox-form p-3 py-0">
+            <div class='input-group w-100'>
+              <div class="dropdown w-25">
+                <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  검색 필터
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="season_list" value="spring">
+                        <label class="form-check-label" for="inlineCheckbox1">봄</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="season_list" value="summer">
+                        <label class="form-check-label" for="inlineCheckbox2">여름</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="season_list" value="fall">
+                        <label class="form-check-label" for="inlineCheckbox3">가을</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="season_list" value="winter">
+                        <label class="form-check-label" for="inlineCheckbox3">겨울</label>
+                      </div>
+
+                    </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'category' %}">Category</a>
+                  <hr>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="floral">
+                        <label class="form-check-label" for="inlineCheckbox1">floral</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="woody">
+                        <label class="form-check-label" for="inlineCheckbox2">woody</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="fresh">
+                        <label class="form-check-label" for="inlineCheckbox3">fresh</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="oriental">
+                        <label class="form-check-label" for="inlineCheckbox3">oriental</label>
+                      </div>
+                    </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'survey_home' %}">What's my taste?</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'reviews' %}">Reviews</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'ranking' %}">Ranking</a>
+                  <hr>
+                  <li>
+                    <a class="dropdown-item" href="#">
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="gender_list" value="woman">
+                        <label class="form-check-label" for="inlineCheckbox3">woman</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="gender_list" value="man">
+                        <label class="form-check-label" for="inlineCheckbox3">man</label>
+                      </div>
+                    </a>
                   </li>
                 </ul>
               </div>
+              <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-75 form-control" value="{{ searched }}">
             </div>
-          </div>
-        </nav>
-        <!-- end #side-navbar -->
+          </form>
+        </header>
+        <!-- End #header -->
+
         {%block content %}{% endblock %}
         <!-- ======= Footer ======= -->
         <footer id="footer">

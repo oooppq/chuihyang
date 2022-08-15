@@ -13,7 +13,7 @@ function clickEvent(e) {
   return;
 }
 
-$("#searchbox").on("propertychange change keyup paste", function () {
+$(".searchbox").on("propertychange change keyup paste", function () {
   const value = $(this).val();
   $.ajax({
     url: "../search",

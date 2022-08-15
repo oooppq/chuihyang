@@ -180,7 +180,7 @@ $("#B").click(function () {
 });
 function next() {
   if (num == 13) {
-    location.replace("../result/");
+    location.replace("/survey/result1/");
     // location.replace('result.html')
     var mbti = "";
     $("#EI").val() < 2 ? (mbti += "I") : (mbti += "E");

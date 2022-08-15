@@ -2,13 +2,13 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request, 'survey.html')
+    return render(request, 'survey-index.html')
 
-def first_survey(request):
-    return render(request, 'first-index.html')
+def survey1(request):
+    return render(request, 'survey1.html')
 
-def form(request):
-    return render(request, 'form.html')
+def form1(request):
+    return render(request, 'form1.html')
 
-def result(request):
-    return render(request, 'result.html')
+def result1(request):
+    return render(request, 'result1.html')

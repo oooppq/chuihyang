@@ -47,14 +47,9 @@
     <!-- ======= Header ======= -->
     <header id="header">
       <div class="d-flex justify-content-between align-items-center header-box">
-        <div class="p-2">
-          <a href="{% url 'home' %}">
-            <span class="logo text-light">
-              CHUI HYANG
-            </span>
-          </a>
-        </div>
-
+        <a class='logo' href="{% url 'home' %}">
+          CHUI HYANG
+        </a>
         <div class="login-button ms-auto p-2">
           {% if user.is_authenticated %}
             <div class="login-on">
@@ -69,212 +64,212 @@
             {% endif%}
           </div>
         </div>
-        <nav id='nav' class='w-100'>
-          <ul id="category-container" class="d-flex">
-            <li class="category-component p-2 flex-fill">
-              <a href="{% url 'about' %}">About</a>
-            </li>
-            <li class="category-component p-2 flex-fill">
-              <a href="{% url 'category' %}">Category</a>
-            </li>
-            <li class="category-component p-2 flex-fill">
-              <a href="{% url 'survey_home' %}">What's my taste?</a>
-            </li>
-            <li class="category-component p-2 flex-fill">
-              <a href="{% url 'reviews' %}">Reviews</a>
-            </li>
-            <li class="category-component p-2 flex-fill">
-              <a href="{% url 'ranking' %}">Ranking</a>
-            </li>
-          </ul>
-        </nav>
+      </div>
+      <nav id='nav' class='w-100'>
+        <ul id="category-container" class="d-flex">
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'about' %}">About</a>
+          </li>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'category' %}">Category</a>
+          </li>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'survey_home' %}">What's my taste?</a>
+          </li>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'reviews' %}">Reviews</a>
+          </li>
+          <li class="category-component p-2 flex-fill">
+            <a href="{% url 'ranking' %}">Ranking</a>
+          </li>
+        </ul>
+      </nav>
 
-        <hr class='w-100'/>
-      </header>
-      <!-- End #header -->
-      <!-- side-navbar for mobile -->
-      <nav id='side-navbar' class="navbar navbar-dark  fixed-top mt-2">
-        <div class="container-fluid">
-          <a href="{% url 'home' %}">
-            <span class="logo text-light">
-              CHUI HYANG
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="offcanvas offcanvas-end text-bg-dark bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-            <div class="offcanvas-header">
+    </header>
+    <!-- End #header -->
+    <!-- side-navbar for mobile -->
+    <nav id='side-navbar' class="navbar navbar-dark  fixed-top mt-2">
+      <div class="container-fluid">
+        <a href="{% url 'home' %}">
+          <span class="logo text-light">
+            CHUI HYANG
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
 
-              {% if user.is_authenticated %}
-                <div class="login-on offcanvas-title">
-                  <span class='fc-light'>Welcome,
-                    {{ user.username }}!</span>
-                  <a href="{% url 'logout' %}" class="">Logout</a>
-                </div>
-              {% else %}
-                <div class="login-off offcanvas-title">
-                  <a href="{% url 'login' %}" class="">Login</a>
-                </div>
-                {% endif%}
-
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            {% if user.is_authenticated %}
+              <div class="login-on offcanvas-title">
+                <span class='fc-light'>Welcome,
+                  {{ user.username }}!</span>
+                <a href="{% url 'logout' %}" class="">Logout</a>
               </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+            {% else %}
+              <div class="login-off offcanvas-title">
+                <a href="{% url 'login' %}" class="">Login</a>
+              </div>
+              {% endif%}
+
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'category' %}">Category</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'survey_home' %}">What's my taste?</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'reviews' %}">Reviews</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'ranking' %}">Ranking</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- end #side-navbar -->
+
+      <!-- ======= Main Section ======= -->
+      <section id="main">
+        <div id="main-container" class="d-flex flex-column align-items-center ">
+          <a href="{% url 'home' %}" class="text-center">
+            <h1>취향</h1>
+            <h2>Find Everything About Perfumes</h2>
+          </a>
+          <form action="{% url 'searched' %}" class="searchbox-form">
+            <div class='input-group'>
+              <div class="dropdown">
+                <button class="btn dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  필터
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="form-check form-check-inline">
+                        <input id='spring' class="form-check-input" type="checkbox" name="season_list" value="spring">
+                        <label class="form-check-label" for="spring">봄</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input id='summer' class="form-check-input" type="checkbox" name="season_list" value="summer">
+                        <label class="form-check-label" for="summer">여름</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input id='fall' class="form-check-input" type="checkbox" name="season_list" value="fall">
+                        <label class="form-check-label" for="fall">가을</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input id='winter' class="form-check-input" type="checkbox" name="season_list" value="winter">
+                        <label class="form-check-label" for="winter">겨울</label>
+                      </div>
+                    </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'category' %}">Category</a>
+                  <hr>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="floral">
+                        <label class="form-check-label" for="inlineCheckbox1">floral</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="woody">
+                        <label class="form-check-label" for="inlineCheckbox2">woody</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="fresh">
+                        <label class="form-check-label" for="inlineCheckbox3">fresh</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="flavor_list" value="oriental">
+                        <label class="form-check-label" for="inlineCheckbox3">oriental</label>
+                      </div>
+                    </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'survey_home' %}">What's my taste?</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'reviews' %}">Reviews</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'ranking' %}">Ranking</a>
+                  <hr>
+                  <li>
+                    <a class="dropdown-item" href="#">
+
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="gender_list" value="woman">
+                        <label class="form-check-label" for="inlineCheckbox3">woman</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="gender_list" value="man">
+                        <label class="form-check-label" for="inlineCheckbox3">man</label>
+                      </div>
+                    </a>
                   </li>
                 </ul>
               </div>
+              <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." class="searchbox form-control" value="{{ searched }}">
             </div>
-          </div>
-        </nav>
-        <!-- end #side-navbar -->
-
-        <!-- ======= Main Section ======= -->
-        <section id="main">
-          <div id="main-container" class="d-flex flex-column align-items-center ">
-            <a href="{% url 'home' %}" class="text-center">
-              <h1>취향</h1>
-              <h2>Find Everything About Perfumes</h2>
-            </a>
-            <form action="{% url 'searched' %}" class="searchbox-form">
-              <div class='input-group'>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    필터
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="form-check form-check-inline">
-                          <input id='spring' class="form-check-input" type="checkbox" name="season_list" value="spring">
-                          <label class="form-check-label" for="spring">봄</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input id='summer' class="form-check-input" type="checkbox" name="season_list" value="summer">
-                          <label class="form-check-label" for="summer">여름</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input id='fall' class="form-check-input" type="checkbox" name="season_list" value="fall">
-                          <label class="form-check-label" for="fall">가을</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input id='winter' class="form-check-input" type="checkbox" name="season_list" value="winter">
-                          <label class="form-check-label" for="winter">겨울</label>
-                        </div>
-                      </a>
-                    </li>
-                    <hr>
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="flavor_list" value="floral">
-                          <label class="form-check-label" for="inlineCheckbox1">floral</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="flavor_list" value="woody">
-                          <label class="form-check-label" for="inlineCheckbox2">woody</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="flavor_list" value="fresh">
-                          <label class="form-check-label" for="inlineCheckbox3">fresh</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="flavor_list" value="oriental">
-                          <label class="form-check-label" for="inlineCheckbox3">oriental</label>
-                        </div>
-                      </a>
-                    </li>
-                    <hr>
-                    <li>
-                      <a class="dropdown-item" href="#">
-
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="gender_list" value="woman">
-                          <label class="form-check-label" for="inlineCheckbox3">woman</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="checkbox" name="gender_list" value="man">
-                          <label class="form-check-label" for="inlineCheckbox3">man</label>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." class="searchbox form-control" value="{{ searched }}">
-              </div>
-            </form>
-            <div id='under-search' class='overflow-auto w-100 d-flex flex-column align-items-center'>
-              {% if user.is_authenticated %}
-                <div id="recommendation-container">
-                  <h3>Today's Recommendation</h3>
-                  <span>고객님의 취향을 기반으로 추천드리는 향수들이에요!</span>
-                  <div class="d-flex my-3">
-                    <div class="card mx-3" style="width: 18rem;">
-                      <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
+          </form>
+          <div id='under-search' class='overflow-auto w-100 d-flex flex-column align-items-center'>
+            {% if user.is_authenticated %}
+              <div id="recommendation-container">
+                <h3>Today's Recommendation</h3>
+                <span>고객님의 취향을 기반으로 추천드리는 향수들이에요!</span>
+                <div class="d-flex my-3">
+                  <div class="card mx-3" style="width: 18rem;">
+                    <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
-                    <div class="card mx-3" style="width: 18rem;">
-                      <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
+                  </div>
+                  <div class="card mx-3" style="width: 18rem;">
+                    <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
-                    <div class="card mx-3" style="width: 18rem;">
-                      <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
+                  </div>
+                  <div class="card mx-3" style="width: 18rem;">
+                    <img src="{% static 'img/santal33.jpg'%}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                   </div>
                 </div>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
           </div>
+        </div>
 
-        </section>
-        <!-- End Main -->
+      </section>
+      <!-- End Main -->
 
-        <!-- ======= Footer ======= -->
-        <footer id="footer">
-          <div class="container">
-            <div class="copyright">
-              &copy; Copyright
-              <strong>
-                <span>ChuiHyang</span></strong>. All Rights Reserved
-            </div>
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="container">
+          <div class="copyright">
+            &copy; Copyright
+            <strong>
+              <span>ChuiHyang</span></strong>. All Rights Reserved
           </div>
-        </footer>
-        <!-- End #footer -->
+        </div>
+      </footer>
+      <!-- End #footer -->
 
-        <!-- Vendor JS Files -->
-        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-        <script src="{% static 'vendor/php-email-form/validate.js'%}"></script>
+      <!-- Vendor JS Files -->
+      <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+      <script src="{% static 'vendor/php-email-form/validate.js'%}"></script>
 
-        <!-- Template Main JS File -->
-        <script src="{% static 'js/main.js'%}"></script>
-      </body>
+      <!-- Template Main JS File -->
+      <script src="{% static 'js/main.js'%}"></script>
+    </body>
 
-    </html>
+  </html>

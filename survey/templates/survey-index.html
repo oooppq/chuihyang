@@ -3,29 +3,31 @@
 {% block content %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css'%}">
   <section id="main" class="d-flex flex-column  align-items-center p-5">
-    <span id="survey-span">원하시는 테스트를 골라주세요!</span>
-    <div id="servey-container" class="">
-      <div class="d-grid gap-2 my-5">
-        <a href="{% url 'survey1' %}">
-          <button class="btn btn-outline-primary w-100" type="button">
-            <span>당신의 성향에 맞는 향수를 알아보아요!</span>
-            <p>심플하고 직관적인 질문을 통해 당신에게 맞는 향수를 찾아드려요.</p>
-          </button>
-        </a>
-        <a href="">
-          <button class="btn btn-outline-primary w-100" disabled="disabled" type="button">
-            <span>새로운 향수를 알아보아요!</span>
-            <p>당신이 가진 향수를 기반으로 새로운 향수를 추천해드려요.</p>
-          </button>
-        </a>
-        <a href="">
-          <button class="btn btn-outline-primary w-100" disabled="disabled" type="button">
-            <span>당신의 패션에 맞는 향수를 찾아보아요!</span>
-            <p>패션의 완성은 당신의 향기! 평소 패션에 맞는 향수를 추천해드려요.</p>
-          </button>
-        </a>
-      </div>
+    <div id='main-container'>
+      <span id="survey-span">원하시는 테스트를 골라주세요!</span>
+      <div id="servey-container" class="">
+        <div class="d-grid gap-2 my-5">
+          <a href="{% url 'survey1' %}">
+            <button class="btn btn-outline-dark w-100" type="button">
+              <span>당신의 성향에 맞는 향수를 알아보아요!</span>
+              <p>심플하고 직관적인 질문을 통해 당신에게 맞는 향수를 찾아드려요.</p>
+            </button>
+          </a>
+          <a href="">
+            <button class="btn btn-outline-dark w-100" disabled="disabled" type="button">
+              <span>새로운 향수를 알아보아요!</span>
+              <p>당신이 가진 향수를 기반으로 새로운 향수를 추천해드려요.</p>
+            </button>
+          </a>
+          <a href="">
+            <button class="btn btn-outline-dark w-100" disabled="disabled" type="button">
+              <span>당신의 패션에 맞는 향수를 찾아보아요!</span>
+              <p>패션의 완성은 당신의 향기! 평소 패션에 맞는 향수를 추천해드려요.</p>
+            </button>
+          </a>
+        </div>
 
+      </div>
     </div>
   </section>
 {% endblock %}

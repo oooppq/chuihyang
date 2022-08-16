@@ -1,20 +1,33 @@
 #main {
-  margin-top: 120px;
   height: 800px;
 }
 
-#survey-span {
-  color: white;
-  font-size: 30px;
-}
-.btn-outline-primary {
-  color: white;
-  border-color: white;
+#main a {
+  color: black;
+  text-decoration: none;
 }
 
-.btn-outline-primary:hover {
+#main-container {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 100px 0;
+}
+#survey-span {
+  font-size: 30px;
+}
+
+.btn-outline-dark {
+  border-width: 2px;
   background-color: #31135c;
-  border-color: white;
+  color: white;
+}
+.btn-outline-dark:hover {
+  background-color: #4d2c7c;
+  /* border-color: white; */
 }
 
 .btn-outline-primary:focus {
@@ -22,5 +35,5 @@
 }
 
 .btn-outline-primary:disabled {
-  color: white;
+  /* color: white; */
 }

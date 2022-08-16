@@ -1,0 +1,56 @@
+#main {
+  display: flex;
+  justify-content: center;
+}
+
+.ranking-outer-div {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 200px;
+  background-color: white;
+  width: 80%;
+  padding: 20px 0;
+  margin-bottom: 200px;
+}
+
+.ranking-container {
+  width: 200px;
+  background-color: white;
+  margin: 10px;
+}
+
+.ranking-title {
+  width: 100%;
+  color: white;
+  background-color: #31135c;
+  padding: 5px 0 5px 10px;
+}
+
+.ranking-list {
+  text-align: left;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ranking-component {
+  padding-left: 10px;
+  width: 100%;
+  border: 0.5px solid black;
+  transition-duration: 0.5s;
+  transition-property: border;
+  transition-timing-function: ease-in-out;
+}
+
+.ranking-component a {
+  color: black;
+  width: 100%;
+}
+
+.selected {
+  border: 2px solid purple;
+  transition-duration: 0.5s;
+  transition-property: border;
+  transition-timing-function: ease-in-out;
+}

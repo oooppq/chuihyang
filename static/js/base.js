@@ -50,3 +50,25 @@ $("#searchbox").on("propertychange change keyup paste", function () {
     },
   });
 });
+
+let index = 0;
+let rankingLists = document.querySelectorAll(".ranking-list");
+
+function borderHighlight(rankingList) {
+  rankingList
+    .querySelectorAll("li")
+    [(index + 9) % 10].classList.remove("selected");
+  rankingList.querySelectorAll("li")[index].classList.add("selected");
+}
+
+function interval() {
+  setInterval(function () {
+    for (rankingList of rankingLists) {
+      borderHighlight(rankingList);
+    }
+
+    index = (index + 1) % 10;
+  }, 2000);
+}
+
+interval();

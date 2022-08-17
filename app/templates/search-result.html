@@ -4,19 +4,22 @@
   <link rel="stylesheet" href="{% static 'css/search-result.css' %}">
   <section id="main">
     <div id="search-result-page-container">
+
       <span class="main-spans mb-3">'{{ searched }}' 검색 결과</span>
-      {% for perfume in perfumes %}
-        <a href="{% url 'perfumes' perfume.id %}">
-          <div class='perfume-item w-50 d-flex align-items-center mb-1'>
-            {% if perfume.image %}
-              <img src="{{ perfume.image.url }}" class="perfume-img me-2" alt="">
-            {% else %}
-              <img src="{% static 'img/no-image.png' %}" class="perfume-img me-2" alt="">
-            {% endif %}
-            {{ perfume.name }}
-          </div>
-        </a>
-      {% endfor %}
+      <div id='results'>
+        {% for perfume in perfumes %}
+          <a href="{% url 'perfumes' perfume.id %}">
+            <div class='perfume-item w-50 d-flex align-items-center mb-1'>
+              {% if perfume.image %}
+                <img src="{{ perfume.image.url }}" class="perfume-img me-2" alt="">
+              {% else %}
+                <img src="{% static 'img/no-image.png' %}" class="perfume-img me-2" alt="">
+              {% endif %}
+              {{ perfume.name }}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
       <div class='paginator d-flex justify-content-center'>
         <a class='ms-auto' href={% if posts.has_previous %} "?page={{ perfumes.previous_page_number }}" {% else%} "" {% endif %}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewbox="0 0 16 16">

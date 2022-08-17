@@ -118,13 +118,14 @@
                   </li>
                 </ul>
               </div>
+              <input class='window-width' type="hidden" name='window-width' value='1000'>
               <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="form-control" value="{{ searched }}">
             </div>
           </form>
           <div class="login-button ms-auto p-2">
             {% if user.is_authenticated %}
               <div class="login-on">
-                <span class="bg-light px-3 mx-3 rounded">Welcome,
+                <span class="px-3 mx-3 rounded">Welcome,
                   {{ user.username }}!</span>
                 <a href="{% url 'logout' %}" class="">Logout</a>
               </div>
@@ -169,8 +170,8 @@
       </div>
 
       <!-- side-navbar for mobile -->
-      <nav id='side-navbar' class="navbar navbar-dark  fixed-top mt-2">
-        <div class="container-fluid">
+      <nav id='side-navbar' class="navbar navbar-dark">
+        <div class="container-fluid p-0 mb-3">
           <a href="{% url 'home' %}">
             <span class="mobile-logo text-light">
               CHUI HYANG
@@ -219,11 +220,11 @@
           </div>
         </nav>
         <!-- end #side-navbar -->
-        <form action="{% url 'searched' %}" class="mobile-searchbox-form p-3 py-0">
-          <div class='input-group w-100'>
-            <div class="dropdown w-25">
-              <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                검색 필터
+        <form action="{% url 'searched' %}" class="mobile-searchbox-form">
+          <div class='input-group'>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                필터
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li>
@@ -284,7 +285,8 @@
                 </li>
               </ul>
             </div>
-            <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="searchbox" class="w-75 form-control" value="{{ searched }}">
+            <input class='window-width' type="hidden" name='window-width' value='1000'>
+            <input type="search" name="searched" placeholder="Perfumes, Brands, Notes, ..." id="mobile-searchbox" class="form-control" value="{{ searched }}">
           </div>
         </form>
       </header>

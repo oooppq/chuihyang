@@ -38,6 +38,9 @@ h6,
 }
 .header-box {
   height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #header .logo {
@@ -57,18 +60,8 @@ h6,
   #header .logo {
     display: none;
   }
-
-  #side-navbar {
-    display: inline;
-  }
-
-  #side-navbar .logo {
-    font-size: 20px;
-    margin: 0;
-    padding-left: 12px;
-    line-height: 1;
-    font-weight: 200;
-    letter-spacing: 3px;
+  .header-box {
+    display: none;
   }
   #nav {
     display: none;
@@ -76,6 +69,18 @@ h6,
 
   .login-button {
     display: none;
+  }
+  #side-navbar {
+    display: inline;
+  }
+
+  #side-navbar .mobile-logo {
+    font-size: 24px;
+    margin: 0;
+    padding-left: 12px;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 3px;
   }
 }
 
@@ -161,6 +166,10 @@ h6,
   border: 1px solid black;
 }
 
+.empty-component {
+  width: 20%;
+  visibility: hidden;
+}
 @media (max-width: 820px) {
   .searched-list {
     padding: 0;
@@ -181,13 +190,25 @@ h6,
   padding: 0;
 }
 
-#recommendation-container {
+#recommendation-div {
+  width: 100%;
   margin-top: 100px;
 }
+.recommendation-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 
-.empty-component {
-  width: 20%;
-  visibility: hidden;
+  overflow: scroll;
+}
+
+.recommendation-component {
+  border: 1px solid black;
+  padding: 10px;
+}
+.recommendation-img {
+  width: 300px;
+  height: 300px;
 }
 /*--------------------------------------------------------------
 # Footer

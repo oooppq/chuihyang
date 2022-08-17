@@ -84,7 +84,7 @@ def searched(request):
     flavor_list = request.GET.getlist('flavor_list') # ['woody']
     gender_list = request.GET.getlist('gender_list') # ['man']
     # perfumes = Perfume.objects.filter(name__contains=searched)
-
+    
     query = Q()
     for i, Season in enumerate(season_list):
         if i == 0: query = query & Q(season=Season)
@@ -102,8 +102,15 @@ def searched(request):
     if len(searched.replace(' ', '')):
         query = query & Q(name__contains=searched)
     print(query)
+    width = int(request.GET['window-width'])
+    if width > 820: numToDisplay = 14
+    elif width > 630: numToDisplay = 6
+    else: numToDisplay = 4
     perfumes = Perfume.objects.filter(query)
-    paginator = Paginator(perfumes, 10)
-    pageNum = request.GET.get('page')
+    print(len(perfumes))
+    paginator = Paginator(perfumes, numToDisplay)
+    print(paginator.num_pages)
+    pageNum = 1#request.GET.get('page')
+
     perfumes = paginator.get_page(pageNum)
     return render(request, 'search-result.html', {'searched':searched, 'perfumes': perfumes})

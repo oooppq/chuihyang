@@ -346,7 +346,5 @@ $(function () {
   });
 });
 
-let rankigLists = document.querySelectorAll(".ranking-list");
-for (list of rankigLists) {
-  console.log(list);
-}
+let windowWidth = document.querySelector(".window-width");
+windowWidth.value = window.innerWidth;

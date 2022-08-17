@@ -1,4 +1,5 @@
 from django.http import JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Perfume, Review
 from .forms import ReviewForm
@@ -12,6 +13,7 @@ from django.core.paginator import Paginator
 
 def home(request):
     return render(request, 'index.html')
+
 
 def perfumes(request, id):
     # review_form = ReviewForm()
@@ -35,28 +37,54 @@ def new_review(request, id):
     for Type in type_list:
         new.type_explain += Type
         new.type_explain += ' '  # html 페이지에 띄울 때 문자열을 공백 기준으로 자르면 될 듯
+    extra_explain = request.POST.get('extra_explain', '')
+    for Type in extra_explain.split(' '):
+        new.type_explain += Type
+        new.type_explain += ' '
 
-    new.power = request.POST['power']
+    new.power = request.POST.get('power', False)
+    if new.power is False:
+        return redirect('perfumes', id)  # 기존 내용을 보존하고 redirect하고 싶은데 방법을 찾지 못함
 
     new.save()
     return redirect('perfumes', id)
-
-# form으로 리뷰 작성을 받을 경우
-# def new_review(request, id):
-#     filled_form = ReviewForm(request.POST)
-#     if filled_form.is_valid():
-#         finished_form = filled_form.save(commit=False)
-#         finished_form.perfume = get_object_or_404(Perfume, id=id)
-#         finished_form.save()
-#     return redirect('perfumes', id)
 
 
 def about(request):
     return render(request, 'about.html')
 
+#### 카테고리 디폴트 페이지 (spring 향수들 목록) ####
+
 
 def category(request):
-    return render(request, 'category.html')
+    query = Q(season='spring')
+    perfumes = Perfume.objects.filter(query)
+    return render(request, 'category.html', {'perfumes': perfumes})
+
+
+#### 다른 카테고리 선택 ####
+def category_detail(request, id):
+    if id == 1:
+        pass
+    elif id == 2:
+        pass
+    elif id == 3:
+        pass
+    elif id == 4:
+        pass
+    elif id == 5:
+        pass
+    elif id == 6:
+        pass
+    elif id == 7:
+        pass
+    elif id == 8:
+        pass
+    elif id == 9:
+        pass
+
+
+    return render(request, 'category_detail.html')
 
 
 def survey(request):
@@ -71,6 +99,8 @@ def ranking(request):
     return render(request, 'ranking.html')
 
 #### show real time search result ####
+
+
 def search(request):
     searched = request.GET['searched']
     perfumes = Perfume.objects.filter(name__contains=searched)
@@ -79,25 +109,33 @@ def search(request):
     return JsonResponse(data)
 
 #### search result page ####
+
+
 def searched(request):
     season_list = request.GET.getlist('season_list')  # ['summer']
-    flavor_list = request.GET.getlist('flavor_list') # ['woody']
-    gender_list = request.GET.getlist('gender_list') # ['man']
+    flavor_list = request.GET.getlist('flavor_list')  # ['woody']
+    gender_list = request.GET.getlist('gender_list')  # ['man']
     # perfumes = Perfume.objects.filter(name__contains=searched)
 
     query = Q()
     for i, Season in enumerate(season_list):
-        if i == 0: query = query & Q(season=Season)
-        else: query = query | Q(season=Season)
-        
+        if i == 0:
+            query = query & Q(season=Season)
+        else:
+            query = query | Q(season=Season)
+
     for i, Flavor in enumerate(flavor_list):
-        if i == 0: query = query & Q(flavor=Flavor)
-        else: query = query | Q(flavor=Flavor)
-        
+        if i == 0:
+            query = query & Q(flavor=Flavor)
+        else:
+            query = query | Q(flavor=Flavor)
+
     for i, Gender in enumerate(gender_list):
-        if i == 0: query = query & Q(gender=Gender)
-        else: query = query | Q(gender=Gender)
-        
+        if i == 0:
+            query = query & Q(gender=Gender)
+        else:
+            query = query | Q(gender=Gender)
+
     searched = request.GET['searched']
     if len(searched.replace(' ', '')):
         query = query & Q(name__contains=searched)
@@ -106,4 +144,4 @@ def searched(request):
     paginator = Paginator(perfumes, 10)
     pageNum = request.GET.get('page')
     perfumes = paginator.get_page(pageNum)
-    return render(request, 'search-result.html', {'searched':searched, 'perfumes': perfumes})
+    return render(request, 'search-result.html', {'searched': searched, 'perfumes': perfumes})

@@ -32,6 +32,8 @@ urlpatterns = [
 
     path('about/', views.about, name='about'),
     path('category/', views.category, name='category'),
+    path('category/<int:id>/', views.category_detail, name='category_detail'),
+    
     
     path('reviews/', views.reviews, name='reviews'),
     path('ranking/', views.ranking, name='ranking'),

@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Perfume MBTI</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png'%}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicons/apple-icon-60x60.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicons/apple-icon-76x76.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-icon-114x114.png'%}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-icon-120x120.png'%}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png'%}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png'%}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static '/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/{% static 'img/faviconsfavicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png'%}">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'survey/css/result3.css'%}">
+  </head>
+
+  <body>
+
+    <section id="main_contents">
+      <div class="wrapper">
+        <div class="result">
+          <div class="titles">
+            <h1 id="scent"></h1>
+          </div>
+          <div class="result_img">
+            <img id="img" src="" alt="MD">
+          </div>
+        </div>
+        <div class="result_explains">
+          <div class="explain">
+            <h3 class="title">My style</h3>
+            <h3 class="words" id="explain">
+              혼자하는 것보다 다른 사람들과 함께 일을 진행하는 걸 선호해 함께하는 일에서 두각을 나타내요. 계획이 수립될 때 같이 협력해서 아이디어를 도출하는 과정에서 희열을 느껴요. 완벽함을 추구하기
+              때문에 스스로를 힘들게 할 수 있어요.가끔은 사람들과 어울리며 여유를 즐겨봐요.
+            </h3>
+          </div>
+          <div class="explain">
+            <h3 class="title">나에게 맞는 향수 추천</h3>
+            <div class="perfume_img">
+              <div class="item">
+                <img class="pf_img" src="{% static 'survey/img/perfume1.png'%}" alt="perfume">
+                <span class="caption">딥티크-롬브르단로</span>
+              </div>
+              <div class="item">
+                <img class="pf_img" src="{% static 'survey/img/perfume2.png'%}" alt="perfume">
+                <span class="caption">르라보-상탈33</span>
+              </div>
+              <div class="item">
+                <img class="pf_img" src="{% static 'survey/img/perfume3.png'%}" alt="perfume">
+                <span class="caption">톰포드-만다리노디아말피</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class='homepage'>
+          <a href="{% url 'home' %}">향수에 대한 더 많은 정보가 필요하다면?</a>
+        </div>
+        <div class="share">
+          <h3>결과 공유하기</h3>
+          <div class="url">
+            <a href="#"><img class="url" src="{% static 'survey/img/url.png'%}" /></a>
+          </div>
+          <div class="instagram">
+            <a href="#"><img class="insta" src="{% static 'survey/img/instagram.png'%}" /></a>
+          </div>
+          <div class="facebook">
+            <a href="#"><img class="facebook" src="{% static 'survey/img/facebook.png'%}" /></a>
+          </div>
+          <div class="kakao">
+            <a href="#"><img class="kakao" src="{% static 'survey/img/kakao.png'%}" /></a>
+          </div>
+        </div>
+        <div class="buttons">
+          <h3>예상과 다르다면..</h3>
+          <a href="{% url 'survey1' %}">
+            <button type="button">테스트 다시하기</button>
+          </a>
+        </div>
+        <div class="home">
+          <a href="{% url 'home' %}">
+            <h3>C H U I H Y A N G</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="{% static 'survey/js/result3.js'%}"></script>
+  </body>
+
+</html>

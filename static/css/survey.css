@@ -1,6 +1,7 @@
+
 #main {
   height: 800px;
-}
+} 
 
 #main a {
   color: black;
@@ -16,7 +17,7 @@
   border: 1px solid black;
   padding: 100px 0;
 }
-#survey-span {
+#survey-span { 
   font-size: 30px;
 }
 

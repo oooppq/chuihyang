@@ -36,32 +36,32 @@
       <div class="wrapper">
         <div class="result">
           <div class="titles">
-            <h1>ENTJ</h1>
+            <h1 id="mbti">mbti</h1>
           </div>
           <div class="result_img">
-            <img src="{% static 'survey/img/ENTJ.png'%}" alt="ENTJ">
+            <img id = "show" src='/static/survey/img/ENTJ.png' alt="ENTJ">
           </div>
         </div>
         <div class="result_explains">
           <div class="explain">
-            <h3 class="title">MBTI</h3>
+            <h3 class="title">MBTI</h3>   
             <h3 class="words">
               혼자하는 것보다 다른 사람들과 함께 일을 진행하는 걸 선호해 함께하는 일에서 두각을 나타내요. 계획이 수립될 때 같이 협력해서 아이디어를 도출하는 과정에서 희열을 느껴요. 완벽함을 추구하기 때문에 스스로를 힘들게 할 수 있어요.가끔은 사람들과 어울리며 여유를 즐겨봐요.
             </h3>
           </div>
           <div class="explain">
             <h3 class="title">나에게 맞는 향수 추천</h3>
-            <div class="perfume_img">
+            <div class="perfume_info">
               <div class="item">
-                <img src="{% static 'survey/img/perfume1.png'%}" alt="perfume">
+                <img class= "pf_img" src="{% static 'survey/img/perfume1.png'%}" alt="perfume">
                 <span class="caption">딥티크-롬브르단로</span>
               </div>
               <div class="item">
-                <img src="{% static 'survey/img/perfume2.png'%}" alt="perfume">
+                <img class= "pf_img" src="{% static 'survey/img/perfume2.png'%}" alt="perfume">
                 <span class="caption">르라보-상탈33</span>
               </div>
               <div class="item">
-                <img src="{% static 'survey/img/perfume3.png'%}" alt="perfume">
+                <img class= "pf_img" src="{% static 'survey/img/perfume3.png'%}" alt="perfume">
                 <span class="caption">톰포드-만다리노디아말피</span>
               </div>
             </div>
@@ -87,31 +87,24 @@
           </div>
         </div>
         <div class="buttons">
-          <ul>
-            <li>
               <h3>예상과 다르다면..</h3>
               <a href="{% url 'survey1' %}">
                 <button type="button">테스트 다시하기</button>
               </a>
-            </li>
-            <li>
-              <h3>다른 사람들은 어떤 유형일까?</h3>
-              <a href="#">
-                <button type="button">다른 결과 알아보기</button>
-              </a>
-            </li>
-          </ul>
         </div>
-        <div class="logo">
-          <div class="logo">
-            <a href="{% url 'survey1' %}">
-              <img src="{% static 'survey/img/logo.png'%}">
-            </a>
-            <h3>CHUIHYANG</h3>
-          </div>
+        
+        <div class="home">
+          <a href="{% url 'home' %}">
+            <h3>C H U I H Y A N G</h3>
+          </a>
         </div>
+        
+        
       </div>
     </section>
+    
+    <script src="{% static 'survey/js/result.js'%}"></script>
+
   </body>
 
 </html>

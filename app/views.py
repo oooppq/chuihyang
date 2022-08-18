@@ -26,11 +26,16 @@ def new_review(request, id):
     new = Review()
     new.content = request.POST['content']
     new.perfume = get_object_or_404(Perfume, pk=id)
-    new.user = request.user
-    new.rating = request.POST['reviewStar']
-    new.first_scent = request.POST['first_scent']
-    new.put_scent = request.POST['put_scent']
-    new.rest_scent = request.POST['rest_scent']
+    try: new.user = request.user
+    except: pass
+    try: new.rating = request.POST['reviewStar']
+    except: pass
+    try: new.first_scent = request.POST['first_scent']
+    except: pass
+    try: new.put_scent = request.POST['put_scent']
+    except: pass
+    try: new.rest_scent = request.POST['rest_scent']
+    except: pass
 
     # 다중 선택 항목
     type_list = request.POST.getlist('type_list')
@@ -44,8 +49,8 @@ def new_review(request, id):
         new.type_explain += ' '
 
     new.power = request.POST.get('power', False)
-    if new.power is False:
-        return redirect('perfumes', id)  # 기존 내용을 보존하고 redirect하고 싶은데 방법을 찾지 못함
+    # if new.power is False:
+    #     return redirect('perfumes', id)  # 기존 내용을 보존하고 redirect하고 싶은데 방법을 찾지 못함
 
     new.save()
     return redirect('perfumes', id)

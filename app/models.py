@@ -109,7 +109,7 @@ class Review(models.Model):
         choices=POWER_CHOICES, max_length=20, null=True)
     type_explain = models.TextField(null=True)  # 타입 ex. 달콤한
     content = models.TextField()
-    first_scent = models.TextField(null=True)  # 시향
+    first_scent = models.TextField(null=True)  # 첫향
     put_scent = models.TextField(null=True)  # 착향
     rest_scent = models.TextField(null=True)  # 잔향
 

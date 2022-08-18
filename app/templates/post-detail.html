@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<h2> {{ post.title }}</h2>
+<span>{{ post.date}}</span>
+<p>{{ post.author.username }}</p>
+<hr />
+<p>
+    {{ post.body }}
+</p>
+<br />
+<!-- 게시물 삭제 버튼 -->
+<a href="{% url 'delete' post.id %} ">삭제</a>
+
+<!-- 게시물 수정 버튼 -->
+<a href="{% url 'edit' post.id %}">수정</a>
+<hr />
+<!-- 댓글 목록 공간 -->
+{% for comment in post.comment_set.all %}
+<span class="">{{ comment.date}}</span> <br>
+{{ comment }}
+<hr>
+{% endfor %}
+
+<!-- 댓글 입력 공간 -->
+<form method="POST" action="{% url 'new_comment' post.id  %}">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ comment_form }}
+    </div>
+    <input type="submit" class="btn btn-primary btn-icon-split btn-sm" value="댓글 입력">
+</form>
+
+
+{% endblock %}

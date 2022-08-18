@@ -35,7 +35,14 @@ urlpatterns = [
     path('category/<int:id>/', views.category_detail, name='category_detail'),
     
     
-    path('reviews/', views.reviews, name='reviews'),
+    path('board/', views.board, name='board'),
+    path('postcreate/', views.postcreate, name='postcreate'),
+    path('post_detail/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('new_comment/<int:post_id>/', views.new_comment, name='new_comment'),
+    path('delete/<int:post_id>/', views.delete, name='delete'),
+    path('edit/<int:post_id>/', views.edit, name='edit'),
+
+
     path('ranking/', views.ranking, name='ranking'),
     path('search/', views.search, name='search'),
     path('searched/', views.searched, name='searched'),

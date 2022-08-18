@@ -1,8 +1,8 @@
 from django.http import JsonResponse
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Perfume, Review
-from .forms import ReviewForm
+from .models import Perfume, PostModel, Review
+from .forms import PostForm, CommentForm
 from django.utils import timezone
 
 # library for query
@@ -17,7 +17,7 @@ def home(request):
 
 def perfumes(request, id):
     # review_form = ReviewForm()
-    perfume = get_object_or_404(Perfume, id=id)
+    perfume = get_object_or_404(Perfume, pk=id)
     return render(request, 'perfume.html', {"perfume": perfume})
     # return render(request, 'perfume.html', {"perfume": perfume, "review_form": review_form})
 
@@ -91,8 +91,61 @@ def survey(request):
     return render(request, 'survey.html')
 
 
-def reviews(request):
-    return render(request, 'reviews.html')
+#### 게시판 페이지 ####
+def board(request):
+    posts = PostModel.objects.filter().order_by('-date')
+    paginator=Paginator(posts, 5)
+    pagnum=request.GET.get('page')
+    posts = paginator.get_page(pagnum)
+    return render(request, 'board.html', {'posts':posts})
+
+
+#### 게시물 작성 ####
+def postcreate(request):
+    if request.method == 'POST' or request.method == 'FILES':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('board')
+    else:
+        form = PostForm()
+    return render(request, 'postcreate.html', {'form':form})
+
+
+#### 개별 게시물 보여주기 ####
+def post_detail(request, post_id):
+    post = get_object_or_404(PostModel, id=post_id)
+    comment_form = CommentForm()
+    return render(request, 'post-detail.html', {'post': post, 'comment_form': comment_form})
+
+#### 게시물 댓글 작성 ####
+def new_comment(request, post_id):
+    filled_form = CommentForm(request.POST)
+    if filled_form.is_valid():
+        finished_form = filled_form.save(commit=False)
+        finished_form.post = get_object_or_404(PostModel, pk=post_id)
+        finished_form.save()
+    return redirect('post_detail', post_id)
+
+#### 게시물 삭제 ####
+def delete(request, post_id):
+    object = get_object_or_404(PostModel, pk=post_id)
+    object.delete()
+    return redirect('board')
+
+#### 게시물 수정 ####
+def edit(request, post_id):
+    post = PostModel.objects.get(id=post_id)    # 수정하고자 하는 객체 갖고 와서
+    if request.method == "POST":            # 만일 request method가 POST라면
+        form = PostForm(request.POST, request.FILES)    # 입력 내용을 갖고와서
+        if form.is_valid():                             # 입력 내용 검수한 뒤
+            post.title = form.cleaned_data['title']     # 입력 내용 중 title을 수정하고자 하는 객체의 title에 저장!
+            post.body = form.cleaned_data['body']       # 입력 내용 중 body를 수정하고자 하는 객체의 body에 저장!
+            post.save()                                 # 그리고 수정된 값을 저장한 객체는 저장
+            return redirect('/post_detail/'+str(post.pk))      # 수정이 되었으면 detail 페이지(해당 그 게시물 페이지)로 이동
+    else:                                        # 만일 request method가 GET이면
+        form = PostForm()                  
+        return render(request, 'post-edit.html',{'form':form})  # 입력 공간을 갖다준다
 
 
 def ranking(request):

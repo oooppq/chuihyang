@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img/favicons/apple-icon-57x57.png'%}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/favicons/apple-icon-60x60.png'%}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/favicons/apple-icon-72x72.png'%}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/favicons/apple-icon-76x76.png'%}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/favicons/apple-icon-114x114.png'%}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicons/apple-icon-120x120.png'%}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/favicons/apple-icon-144x144.png'%}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/favicons/apple-icon-152x152.png'%}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-icon-180x180.png'%}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static '/android-icon-192x192.png'%}">
+    <link rel="icon" type="image/png" sizes="32x32" href="/{% static 'img/faviconsfavicon-32x32.png'%}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicons/favicon-96x96.png'%}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/favicon-16x16.png'%}">
+    <link rel="manifest" href="{% static 'img/favicons/manifest.json'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/favicons/ms-icon-144x144.png'%}">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'survey/css/form3.css'%}">
+    <!-- <link rel="stylesheet" type="text/css" href="css/result.css"> -->
+  </head>
+
+  <body>
+    <main>
+
+      <article class="sex">
+        <h3 class="head text-center">FIND YOUR CHUIHYANG</h3>
+        <h2 class="question-content text-center mt-4 mb-4">자신의 성별을 골라주세요.</h2>
+        <div class="row1">
+
+          <button type="button" class="btn-answer btn  rounded-circle  " style="width:160px; height: 160px;"
+            onclick="startW();">woman</button>
+
+          <button type="button" class="btn-answer btn rounded-circle " style="width:160px; height: 160px;"
+            onclick="startM();">
+            man</button>
+        </div>
+      </article>
+      <article class="question">
+        <h3 class="head text-center">FIND YOUR CHUIHYANG</h3>
+        <div class="progress mt-5">
+          <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+        </div>
+
+        <h2 id="title" class="question-content text-center mt-4 mb-4">평소에 즐겨 입는 옷 스타일을 골라주세요.</h2>
+
+        <input id="type" type="hidden" value="EI">
+        <div class="row2">
+          <button id="A" type="button" class="btn-answer btn btn-primary col col-md-3 ">츄리닝</button>
+
+          <button id="B" type="button" class="btn-answer btn btn-primary col col-md-3 ">
+            정장</button>
+          <button id="C" type="button" class="btn-answer btn btn-primary col col-md-3 ">
+            꾸안꾸</button>
+          <button id="D" type="button" class="btn-answer btn btn-primary col col-md-3 ">
+            힙한<i class="fa-solid fa-hand-horns"></i></button>
+
+        </div>
+      </article>
+      <article class="process">
+        <section class="process-box">
+          <div class="circle circle1"></div>
+          <div class="circle circle2"></div>
+          <div class="circle circle3"></div>
+        </section>
+        <h4 class="find mt-3">C H U I H Y A N G</h4>
+
+      </article>
+    </main>
+    <input type="hidden" id="rA" value="0">
+    <input type="hidden" id="rB" value="0">
+    <input type="hidden" id="rC" value="0">
+    <input type="hidden" id="rD" value="0">
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+
+    <script src="{% static 'survey/js/form3.js'%}"></script>
+
+  </body>
+
+</html>

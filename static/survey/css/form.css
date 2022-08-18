@@ -70,6 +70,88 @@ article .head {
   border: 1px solid rgb(224, 223, 223);
 }
 
+
+.process {
+  display: none;
+  margin: auto;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 1px #31135c;
+
+}
+
+.process-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  border: 1px solid aliceblue;
+  margin: 10px;
+  -webkit-animation: bg infinite;
+          animation: bg infinite;
+
+
+
+}
+
+@-webkit-keyframes bg {
+  from {
+    background: none;
+  }
+
+  to {
+    background-color: #31135c;
+
+  }
+}
+
+@keyframes bg {
+  from {
+    background: none;
+  }
+
+  to {
+    background-color: #31135c;
+
+  }
+}
+
+.circle1 {
+  -webkit-animation-name: bg;
+          animation-name: bg;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+
+
+}
+
+.circle2 {
+  -webkit-animation-name: bg;
+          animation-name: bg;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+
+}
+
+.circle3 {
+  -webkit-animation-name: bg;
+          animation-name: bg;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+
+}
 .question-content {
   font-size: 14px;
   color: #6f6f6f;

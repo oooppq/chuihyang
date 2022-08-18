@@ -104,6 +104,7 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              null=True, blank=True, on_delete=models.SET_NULL)
     # 세부 정보
+    rating = models.IntegerField(null=True)
     power = models.CharField(
         choices=POWER_CHOICES, max_length=20, null=True)
     type_explain = models.TextField(null=True)  # 타입 ex. 달콤한

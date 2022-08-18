@@ -18,7 +18,8 @@ def home(request):
 def perfumes(request, id):
     # review_form = ReviewForm()
     perfume = get_object_or_404(Perfume, id=id)
-    return render(request, 'perfume.html', {"perfume": perfume})
+    reviews = Review.objects.filter(perfume=perfume).order_by('-date')
+    return render(request, 'perfume.html', {"perfume": perfume, 'reviews':reviews})
     # return render(request, 'perfume.html', {"perfume": perfume, "review_form": review_form})
 
 
@@ -27,6 +28,7 @@ def new_review(request, id):
     new.content = request.POST['content']
     new.perfume = get_object_or_404(Perfume, pk=id)
     new.user = request.user
+    new.rating = request.POST['reviewStar']
     new.first_scent = request.POST['first_scent']
     new.put_scent = request.POST['put_scent']
     new.rest_scent = request.POST['rest_scent']

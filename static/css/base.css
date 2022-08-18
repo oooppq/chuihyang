@@ -64,7 +64,7 @@ h6,
   width: 50%;
 }
 
-.dropdown {
+#header .dropdown {
   width: 20%;
   background-color: #e6eaf5;
 }

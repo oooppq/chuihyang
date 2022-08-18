@@ -1,6 +1,5 @@
 let windowWidth = document.querySelector(".window-width");
 windowWidth.value = window.innerWidth;
-console.log(window.innerWidth);
 
 var body = document.querySelector("body");
 body.addEventListener("click", clickEvent);

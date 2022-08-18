@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', accounts_views.login, name='login'),
     path('logout/', accounts_views.logout, name='logout'),
     path('signup/', accounts_views.signup, name='signup'),
+    path('accounts/', include('allauth.urls')),
 
     path('perfumes/<int:id>', views.perfumes, name='perfumes'),
     path('new_review/<int:id>', views.new_review, name='new_review'),

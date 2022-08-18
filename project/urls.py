@@ -26,18 +26,20 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('login/', accounts_views.login, name='login'),
     path('logout/', accounts_views.logout, name='logout'),
+    path('signup/', accounts_views.signup, name='signup'),
+
     path('perfumes/<int:id>', views.perfumes, name='perfumes'),
     path('new_review/<int:id>', views.new_review, name='new_review'),
 
 
     path('about/', views.about, name='about'),
     path('category/', views.category, name='category'),
-    
+
     path('reviews/', views.reviews, name='reviews'),
     path('ranking/', views.ranking, name='ranking'),
     path('search/', views.search, name='search'),
     path('searched/', views.searched, name='searched'),
-    
+
     # path('survey/', views.survey, name='survey'),
     path('survey/', include('survey.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

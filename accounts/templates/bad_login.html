@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<section id="main" class=" d-flex flex-column align-items-center">
+    <div id="login-container" class="d-flex flex-column align-items-center ">
+        존재하지 않는 회원입니다. 다시 로그인해주세요.
+        <br />
+        <a href="{% url 'login' %}">다시 로그인하기</a>
+    </div>
+
+</section>
+{% endblock %}

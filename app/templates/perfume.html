@@ -5,40 +5,44 @@
   <section id="main">
     <div id="perfume-page-container">
       <span class="main-spans">PERFUME</span>
-      <div id="image-and-info-container" class="d-flex justify-content-around">
-        <div class="card" style="width: 25rem">
+      <div id="image-and-info-container">
+        <div class='perfume-img-container'>
           {% if perfume.image %}
             <img src="{{ perfume.image.url }}" alt="perfume-image"/>
           {% else %}
             <img src="{% static 'img/no-image.png' %}" alt="no-image"/>
           {% endif %}
-          <div class="card-body">
-            <p class="card-text">
-              {{ perfume.country }}
-            </p>
-          </div>
         </div>
+        <hr class='img-hr'>
         <div id="perfume-info" class="">
           <span id="perfume-title">{{ perfume.name }}</span><br>
-          <span id="perfume-subtitle">{{ perfume.brand}}</span>
+          <span id="perfume-brand">
+            <p>브랜드</p>
+            {{ perfume.brand}}
+          </span>
+          <span id='perfume-country'>
+            <p>제조국</p>{{ perfume.country }}
+          </span>
+          <hr>
+
           <div id="perfume-detail">
             <div class='perfume-detail-content'>
-              <span>계절감/분류</span>
+              <p>계절감/분류</p>
               {{ perfume.season }}
               /
               {{ perfume.flavor }}
             </div>
             <div class='perfume-detail-content'>
-              <span>성별/나이</span>
+              <p>성별/나이</p>
               {{ perfume.gender }}
               /
-              {{ perfume.age }}대 분들께 추천합니다
+              {{ perfume.age }}대 추천
             </div>
             <div class='perfume-detail-content'>
-              <span>이 향수는</span>
+              <p>이 향수는</p>
               #{{ perfume.situation }}
-
             </div>
+            <hr>
             <div class='perfume-explain'>
               {{ perfume.explain }}
             </div>
@@ -47,23 +51,36 @@
       </div>
       <span class="main-spans">RECOMMENDATION</span>
       <div id="recommendation-container">
-        <ul id="recommendation-image-container" class="d-flex justify-content-around">
+        <ul id="recommendation-image-container" class="">
           <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+            <div>
+              <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+              <p>test</p>
+            </div>
           </li>
           <li>
-            <img src="{% static 'img/hwyl.jpg'%}" alt="fleur-de-peau" class="recommendation-image"/>
+            <div>
+              <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+              <p>test</p>
+            </div>
           </li>
           <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+          <li>
+            <div>
+              <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+              <p>test</p>
+            </div>
           </li>
           <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+          <li>
+            <div>
+              <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
+              <p>test</p>
+            </div>
           </li>
           <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
         </ul>
+
       </div>
       <span class="main-spans">REVIEWS</span>
 

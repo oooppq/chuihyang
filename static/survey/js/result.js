@@ -26,7 +26,7 @@ var designate={
     FJ:'메모파리-인레',
   }
 }
-
+//h
 function parse_change(){
   var str=localStorage.getItem('mbti');
 

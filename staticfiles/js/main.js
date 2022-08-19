@@ -1,3 +1,4 @@
+// 실시간 검색 결과창 이외의 부분을 클릭시 결과창을 사라지게 함
 var body = document.querySelector("body");
 body.addEventListener("click", clickEvent);
 
@@ -13,7 +14,8 @@ function clickEvent(e) {
   return;
 }
 
-$("#searchbox").on("propertychange change keyup paste", function () {
+// 검색어 입력시 글자마다 get 요청을 보내 실시간으로 검색 결과를 출력하도록 함
+$(".searchbox").on("propertychange change keyup paste", function () {
   const value = $(this).val();
   $.ajax({
     url: "../search",
@@ -27,21 +29,20 @@ $("#searchbox").on("propertychange change keyup paste", function () {
       if (lastList) lastList.remove();
       var outerDiv = document.createElement("div");
       outerDiv.style.color = "black";
-      outerDiv.classList.add(
-        "searched-list",
-        "w-50",
-        "px-3",
-        "d-flex",
-        "flex-column",
-        "align-items-center"
-      );
+      outerDiv.classList.add("searched-list", "d-flex", "flex-column");
 
       for (let p of data["searchedList"]) {
         let innerDiv = document.createElement("div");
-        innerDiv.classList.add("d-flex", "w-50", "searched-component", "ps-3");
+        innerDiv.classList.add("d-flex", "searched-component", "ps-3");
+        let emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("empty-component");
+        emptyDiv.innerHTML = "empty";
         let link = document.createElement("a");
         link.href = "/perfumes/" + p[0];
         link.innerHTML = p[1];
+        link.style.width = "80%";
+        link.style.textAlign = "left";
+        innerDiv.appendChild(emptyDiv);
         innerDiv.appendChild(link);
         outerDiv.appendChild(innerDiv);
       }

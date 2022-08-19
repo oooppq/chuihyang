@@ -1,17 +1,18 @@
+hr {
+  margin: 5px 0;
+}
+
 #main {
   margin-top: 80px;
   display: flex;
   justify-content: center;
-  /* countdown */
-  color: white;
+  color: black;
 }
 
 #perfume-page-container {
-  padding: 20px;
   width: 90%;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* background-color: white; */
-  border-style: solid;
+  background-color: white;
+  border: 1px solid #ddd;
   border-radius: 5px;
 }
 
@@ -22,60 +23,289 @@
 .main-spans {
   font-size: 50px;
   font-weight: bold;
-  margin: 70px;
+  margin: 30px;
 }
 
 #image-and-info-container {
-  border-style: solid;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid #ddd;
+  height: auto;
 
   margin: 30px;
   padding: 20px 0 20px 0;
 }
 
-#image-and-info-container .card {
-  color: black;
+.perfume-img-container {
+  width: 50%;
+  height: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#perfume-info {
+  height: 100%;
+  margin: 0 20px 0 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-hr {
+  display: none;
 }
 #perfume-title {
   font-size: 30px;
   font-weight: bold;
 }
 
-#perfume-subtitle {
+#perfume-brand {
   font-size: 20px;
-  font-weight: bold;
+  display: flex;
+}
+
+#perfume-brand p {
+  color: rgb(102, 102, 102);
+  width: 100px;
+}
+
+#perfume-country {
+  font-size: 20px;
+  display: flex;
+}
+
+#perfume-country p {
+  color: rgb(102, 102, 102);
+  width: 100px;
+}
+
+#perfume-detail {
+  margin: 20px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#perfume-detail p {
+  width: 100px;
+}
+.perfume-detail-content {
+  display: flex;
+  margin: 10px 0;
+}
+
+#perfume-detail p {
+  color: rgb(102, 102, 102);
+  width: 100px;
+}
+
+.perfume-explain {
+  flex: 1;
 }
 
 #recommendation-container {
-  border-style: solid;
+  border: 1px solid #ddd;
 
   margin: 30px;
-  padding: 20px 0 20px 0;
+  padding: 20px;
 }
 
 #recommendation-image-container {
-  height: 100px;
+  /* height: 100px; */
   list-style: none;
+  overflow: auto;
+  display: flex;
 }
 
 .recommendation-image {
-  max-width: 100%;
-  max-height: 100%;
+  height: 100px;
+  width: 100px;
+  flex: 1;
 }
 
 #reviews-container {
   /* border-style: solid; */
   margin: 30px;
-  padding: 20px 0 20px 0;
+  border: 1px solid #ddd;
 }
 
-/* 검색 결과 페이지 관련 추가 */
-
-.perfume-item {
-  -moz-text-align-last: center;
-  text-align-last: center;
+.review-filter {
+  border-bottom: 1px solid #ddd;
+  background-color: #f2f2f2;
+}
+.each-review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.review-user {
+  font-weight: bolder;
+  margin-right: 10px;
 }
 
-.perfume-item .perfume-img {
-  padding: 0 60px;
-  margin-bottom: 15px;
+.review-date {
+  font-size: 12px;
+}
+
+.empty-star {
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+
+.badge {
+  background-color: rgba(103, 1, 103, 0.6);
+  color: white;
+}
+
+.review-content {
+  margin-top: 10px;
+}
+
+.review-form {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.rating-container {
+  margin: 0 5px 15px 5px;
+}
+
+.rating-container span {
+  margin-right: 10px;
+}
+.rating {
+  display: inline-block;
+  direction: rtl;
+  border: 0;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+.rating label {
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.rating label:hover {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+.rating label:hover ~ label {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+.rating input[type="radio"]:checked ~ label {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+
+#reviewContents {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: solid 1.5px #d3d3d3;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+}
+.review-comment-span {
+  margin-left: 5px;
+}
+
+.review-comment {
+  margin-top: 10px;
+  height: 150px;
+}
+.review-form .btn {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  margin-left: auto;
+}
+
+.submit-button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+@media (max-width: 820px) {
+  .main-spans {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
+  }
+  #perfume-title {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .perfume-img-container {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #image-and-info-container {
+    border: 1px solid #ddd;
+    height: auto;
+    flex-direction: column;
+
+    margin: 30px;
+    padding: 10px;
+  }
+  .img-hr {
+    display: block;
+  }
+
+  #perfume-info {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #perfume-brand {
+    font-size: 16px;
+  }
+
+  #perfume-country {
+    font-size: 16px;
+  }
+
+  #perfume-detail {
+    margin: 20px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #perfume-detail span {
+    font-weight: bolder;
+  }
+
+  .perfume-detail-content {
+    margin: 10px 0;
+  }
+
+  #recommendation-container {
+    border: 1px solid #ddd;
+
+    margin: 30px;
+    padding: 20px 0 20px 0;
+  }
+
+  #recommendation-image-container {
+    height: 100px;
+    list-style: none;
+  }
+
+  /* 검색 결과 페이지 관련 추가 */
+
+  .perfume-item {
+    -moz-text-align-last: center;
+    text-align-last: center;
+  }
+
+  .perfume-item .perfume-img {
+    padding: 0 60px;
+    margin-bottom: 15px;
+  }
 }

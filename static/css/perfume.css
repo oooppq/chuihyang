@@ -32,6 +32,7 @@
 
 #perfume-info {
   height: 100%;
+  margin: 0 20px 0 100px;
   display: flex;
   flex-direction: column;
 }

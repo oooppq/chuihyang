@@ -10,8 +10,14 @@
 }
 
 #login-container {
-  border: solid whitesmoke;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  width: 600px;
+  width: 80%;
   height: 500px;
+}
+
+#log .login-btn {
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-top: 30px;
 }

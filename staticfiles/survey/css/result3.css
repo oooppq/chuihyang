@@ -1,0 +1,201 @@
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NEXON Lv1 Gothic OTF";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "NEXON Lv1 Gothic OTF";
+}
+
+#main_contents {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+
+#main_contents .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  padding-bottom: 50px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  padding: 15px;
+}
+
+.result h1 {
+  font-size: 50px;
+  font-family: "GmarketSansMedium";
+}
+
+.result h3 {
+  padding-bottom: 15px;
+}
+
+.result img {
+  width: 100%;
+  height: 504px;
+}
+
+.result_img img {
+  width: 100%;
+}
+
+.result_explains {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  padding-bottom: 50px;
+  line-height: 1.5;
+}
+
+.result_explains .explain {
+  width: 500px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.result_explains .words {
+  padding: 13px;
+
+}
+
+.result_explains .title {
+  font-family: "GmarketSansMedium";
+  font-size: 20px;
+  text-align: center;
+  border-top: 3px solid #31135c;
+  border-bottom: 3px solid #31135c;
+}
+
+.perfume_img {
+  width: 800px;
+  height: 180px;
+}
+
+.perfume_img img {
+  padding-left: 18px;
+  padding-top: 15px;
+  width: 140px;
+  height: 150px;
+}
+
+.perfume_img .item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.perfume_img .caption {
+  display: block;
+  font-size: 10px;
+}
+
+.homepage {
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+
+.homepage a {
+  color: white;
+}
+
+.homepage a:hover {
+  color: #a086c4;
+}
+
+.share {
+  display: flex;
+  justify-content: stretch;
+}
+
+.share h3 {
+  margin: 10px;
+  padding-top: 13px;
+  font-family: "NEXON Lv1 Gothic OTF";
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+.share img {
+  width: 40px;
+  margin: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+}
+
+button {
+  font-family: "NEXON Lv1 Gothic OTF";
+  font-size: 15px;
+  width: 250px;
+  height: 50px;
+  padding: 5px;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #31135c;
+  color: #fff;
+  float: left;
+}
+
+button:hover {
+  color: #31135c;
+  background-color: #fff;
+  transition: all 0.4s;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.buttons h3 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.buttons button {
+  margin-bottom: 30px;
+}
+
+.home h3 {
+  margin-top: 30px;
+  font-size: 30px;
+  font-family: "NEXON Lv1 Gothic OTF";
+  color: #fff !important;
+}

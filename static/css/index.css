@@ -8,8 +8,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Hahmlet-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-ExtraBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 body {
-  font-family: "Open Sans", sans-serif;
+
   background-size: cover;
 }
 
@@ -41,12 +50,15 @@ h6,
 }
 
 body {
-  background-image: url('/static/img/bg-p.jpg');
+  background-image: url('/static/img/main_bg.jpg');
+
 
 }
 
 #header a {
   color: #31135c;
+
+
 
 }
 
@@ -63,6 +75,7 @@ body {
   line-height: 1;
   font-weight: 400;
   letter-spacing: 3px;
+  font-family: 'Hahmlet-ExtraBold';
 }
 
 #side-navbar {
@@ -142,7 +155,7 @@ h4,
 h5,
 h6,
 .font-primary {
-  font-family: "Raleway", sans-serif;
+  /* font-family: "Raleway", sans-serif; */
   color: black;
 }
 

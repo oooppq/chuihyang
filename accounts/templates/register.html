@@ -5,9 +5,7 @@
 <section id="main" class=" d-flex flex-column align-items-center">
     <div id="login-container" class="d-flex flex-column align-items-center ">
         <br />
-        <br />
         <span id="signup-span">Create an Account</span>
-        <br />
         <br />
         <form action="" method="POST" id="signup-form"
             class="d-flex flex-column align-items-center justify-content-center">
@@ -16,20 +14,28 @@
                 <div class="col-sm-10">
                     ID:
                     <br />
-                    <input type="username" class="form-control-lg" name="username" placeholder="Enter Your ID">
+                    <input type="username" class="username-input form-control" name="username"
+                        placeholder="Enter Your ID">
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-sm-10">
                     Password:
                     <br />
-                    <input type="password" class="form-control-lg" name="password" placeholder="Password">
-                    <br />
-                    <input type="password" class="form-control-lg" name="repeat" placeholder="Repeat Password">
+                    <input type="password" class="password-input form-control" name="password" placeholder="Password">
+                    <input type="password" class="password-input form-control" name="repeat"
+                        placeholder="Repeat Password">
                 </div>
             </div>
-            <br />
-            <input type="submit" value="회원가입" class="btn btn-outline-light">
+            <div class="mb-3 row">
+                <div class="col-sm-10">
+                    Email:
+                    <br />
+                    <input type="email" class="password-input form-control" name="email" placeholder="Enter Your Email">
+                </div>
+            </div>
+            <input type="submit" value="회원가입" class="btn btn-outline-light"
+                style="background-color:rgb(133, 133, 133);">
         </form>
         <br />
         <a href="{% url 'login' %}">로그인 페이지로 돌아가기</a>

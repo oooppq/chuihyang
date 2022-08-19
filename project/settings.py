@@ -64,6 +64,8 @@ AUTHENTICATION_BACKENDS = [
 
 ]
 
+# AUTH_USER_MODEL = 'accounts.Profile'
+
 LOGIN_REDIRECT_URL = '/'
 
 MIDDLEWARE = [

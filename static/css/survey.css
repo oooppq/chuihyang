@@ -84,10 +84,14 @@
 .test_title {
   color: white;
   text-align: center;
-  /* position: absolute; */
-  /* top: 20%;
-  left: 20%; */
+  margin-top: 30%;
   text-shadow: 2px 2px 1px black;
+}
+
+.qbox-inner div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .click {
@@ -95,8 +99,9 @@
   background: none;
   color: white;
   /* position: absolute; */
-  bottom: 10%;
-  left: 39%;
+
+  margin-top: 30%;
+
   padding: 5px 30px;
   border: 1px solid white;
   font-size: 20px;
@@ -111,8 +116,7 @@
   }
 
   .test_title {
-    /* top: 0%;
-    left: 0%; */
+    font-size: 12px;
   }
 }
 

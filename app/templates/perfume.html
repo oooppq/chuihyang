@@ -1,256 +1,259 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/perfume.css' %}">
-  <section id="main">
-    <div id="perfume-page-container">
-      <span class="main-spans">PERFUME</span>
-      <div id="image-and-info-container" class="d-flex justify-content-around">
-        <div class="card" style="width: 25rem">
-          {% if perfume.image %}
-            <img src="{{ perfume.image.url }}" alt="perfume-image"/>
-          {% else %}
-            <img src="{% static 'img/no-image.png' %}" alt="no-image"/>
-          {% endif %}
-          <div class="card-body">
-            <p class="card-text">
-              {{ perfume.country }}
-            </p>
-          </div>
-        </div>
-        <div id="perfume-info" class="">
-          <span id="perfume-title">{{ perfume.name }}</span><br>
-          <span id="perfume-subtitle">{{ perfume.brand}}</span>
-          <div id="perfume-detail">
-            <div class='perfume-detail-content'>
-              <span>계절감/분류</span>
-              {{ perfume.season }}
-              /
-              {{ perfume.flavor }}
-            </div>
-            <div class='perfume-detail-content'>
-              <span>성별/나이</span>
-              {{ perfume.gender }}
-              /
-              {{ perfume.age }}대 분들께 추천합니다
-            </div>
-            <div class='perfume-detail-content'>
-              <span>이 향수는</span>
-              #{{ perfume.situation }}
-
-            </div>
-            <div class='perfume-explain'>
-              {{ perfume.explain }}
-            </div>
-          </div>
+<link rel="stylesheet" href="{% static 'css/perfume.css' %}">
+<section id="main">
+  <div id="perfume-page-container">
+    <span class="main-spans">PERFUME</span>
+    <div id="image-and-info-container" class="d-flex justify-content-around">
+      <div class="card" style="width: 25rem">
+        {% if perfume.image %}
+        <img src="{{ perfume.image.url }}" alt="perfume-image" />
+        {% else %}
+        <img src="{% static 'img/no-image.png' %}" alt="no-image" />
+        {% endif %}
+        <div class="card-body">
+          <p class="card-text">
+            {{ perfume.country }}
+          </p>
         </div>
       </div>
-      <span class="main-spans">RECOMMENDATION</span>
-      <div id="recommendation-container">
-        <ul id="recommendation-image-container" class="d-flex justify-content-around">
-          <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
-          <li>
-            <img src="{% static 'img/hwyl.jpg'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
-          <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
-          <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
-          <li>
-            <img src="{% static 'img/fleur-de-peau.png'%}" alt="fleur-de-peau" class="recommendation-image"/>
-          </li>
-        </ul>
-      </div>
-      <span class="main-spans">REVIEWS</span>
+      <div id="perfume-info" class="">
+        <span id="perfume-title">{{ perfume.name }}</span><br>
+        <span id="perfume-subtitle">{{ perfume.brand}}</span>
+        <div id="perfume-detail">
+          <div class='perfume-detail-content'>
+            <span>계절감/분류</span>
+            {{ perfume.season }}
+            /
+            {{ perfume.flavor }}
+          </div>
+          <div class='perfume-detail-content'>
+            <span>성별/나이</span>
+            {{ perfume.gender }}
+            /
+            {{ perfume.age }}대 분들께 추천합니다
+          </div>
+          <div class='perfume-detail-content'>
+            <span>이 향수는</span>
+            #{{ perfume.situation }}
 
-      <!-- 리뷰쓰기 -->
-      <div id="reviews-container">
-        <div class='review-filter'>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Filter
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">최신순</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">높은 평점순</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">낮은 평점순</a>
-              </li>
-            </ul>
+          </div>
+          <div class='perfume-explain'>
+            {{ perfume.explain }}
           </div>
         </div>
-        <!-- 리뷰 목록 -->
-        {% for review in reviews %}
-          <div class='each-review'>
-            <div class='review-header'>
-              <span class='review-user'>{{ review.user }}</span>
-              <span class='review-date'>{{ review.date }}</span>
-            </div>
-            <div class='review-badge'>
-              <span class="badge">
-                지속력:
-                {{ review.power }}
-              </span>
-              <span class="badge">
-                타입:
-                {{ review.type_explain }}
-              </span>
-              <span class="badge ">
-                첫향:
-                {{ review.first_scent }}
-              </span>
-              <span class="badge ">
-                착향:
-                {{ review.put_scent }}
-              </span>
-              <span class="badge">
-                잔향:
-                {{ review.rest_scent }}
-              </span>
-            </div>
-            {% if review.rating == 1 %}
-              <span>★<span class='empty-star'>★★★★</span></span>
-            {% elif review.rating == 2 %}
-              <span>★★<span class='empty-star'>★★★</span></span>
-            {% elif review.rating == 3 %}
-              <span>★★★<span class='empty-star'>★★</span></span>
-            {% elif review.rating == 4 %}
-              <span>★★★★<span class='empty-star'>★</span></span>
-            {% elif review.rating == 5 %}
-              <span>★★★★★</span>
-            {% else %}
-              <span class='empty-star'>★★★★★</span>
-            {% endif %}
-
-            <div class='review-content'>{{ review.content }}</div>
-          </div>
-        {% endfor %}
-        <form class='review-form' accept-charset="UTF-8" action="{% url 'new_review' perfume.pk  %}" method="post">
-          {% csrf_token %}
-          <div class='rating-container'>
-            <span class="text-bold">별점을 선택해주세요</span>
-            <fieldset class='rating'>
-              <input type="radio" name="reviewStar" value="5" id="rate1">
-              <label for="rate1">★</label>
-              <input type="radio" name="reviewStar" value="4" id="rate2">
-              <label for="rate2">★</label>
-              <input type="radio" name="reviewStar" value="3" id="rate3">
-              <label for="rate3">★</label>
-              <input type="radio" name="reviewStar" value="2" id="rate4">
-              <label for="rate4">★</label>
-              <input type="radio" name="reviewStar" value="1" id="rate5">
-              <label for="rate5">★</label>
-            </fieldset>
-          </div>
-          <!-- 선택 항목 -->
-          <div class="btn-group" style="display:inline;">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              타입
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="type_list" value="달콤한">
-                  달콤한</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="type_list" value="비누향의">
-                  비누향의</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="type_list" value="신선한">
-                  신선한</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="type_list" value="무거운">
-                  무거운</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="type_list" value="톡쏘는">
-                  톡 쏘는</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li>
-                <a class="dropdown-item">표현 추가하기<br>
-                  ( 띄어쓰기로 단어를 구분해주세요 ! )
-                  <br>
-                  ex. 산뜻한 강렬한 매력적인
-                  <br>
-                  <input type="text" name="extra_explain"></a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="btn-group" style="display:inline;">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              지속력
-            </button>
-
-            <!-- 하나만 선택하게 만드는 함수 -->
-            <script>
-              function OneCheck(chk) {
-                var obj = document.getElementsByName("power");
-                var num = 0;
-                for (var i = 0; i < obj.length; i++) {
-                  if (obj[i] != chk) {
-                    obj[i].checked = false;
-                  }
-                }
-                for (var i = 0; i < obj.length; i++) {
-                  if (obj[i].checked) {
-                    num++;
-                  }
-                }
-                if (!num) {
-                  alert('지속력을 한 개 선택하세요');
-                  return false;
-                }
-              }
-            </script>
-
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="power" value="good" onclick="OneCheck(this);">좋아요</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="power" value="moderate" onclick="OneCheck(this);">적당해요</a>
-              </li>
-              <li>
-                <a class="dropdown-item"><input type="checkbox" name="power" value="bad" onclick="OneCheck(this);">별로예요</a>
-              </li>
-            </ul>
-          </div>
-
-          <br><br>
-          <span class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">첫향</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="first_scent" placeholder='이 향수의 첫 느낌을 표현해주세요.'>
-          </span>
-
-          <span class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">착향</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="put_scent" placeholder='이 향수를 본인에게 뿌렸을 때의 느낌을 표현해주세요.'>
-          </span>
-
-          <span class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">잔향</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="rest_scent" placeholder='향이 거의 날아갔을 때의 느낌을 표현해주세요.'>
-          </span>
-
-          <span class="review-comment-span">향수에 대한 자유로운 설명을 작성해주세요.</span>
-          <input type="text" class="form-control review-comment" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="content">
-          <button class="btn submit-button" type="submit">리뷰 등록</button>
-        </form>
       </div>
     </div>
-  </section>
+    <span class="main-spans">RECOMMENDATION</span>
+    <div id="recommendation-container">
+      <ul id="recommendation-image-container" class="d-flex justify-content-around">
+        {% for obj in rec %}
+        <li>
+          <a href="{% url 'perfumes' obj.id %}">
+            {% if perfume.image %}
+            <img src="{{ obj.image.url }}" alt="fleur-de-peau" class="recommendation-image" />
+            {% else %}
+            <img src="{% static 'img/no-image.png' %}" alt="no-image" class="recommendation-image" />
+            {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <span class="main-spans">REVIEWS</span>
+
+    <!-- 리뷰쓰기 -->
+    <div id="reviews-container">
+      <div class='review-filter'>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#">최신순</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">높은 평점순</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">낮은 평점순</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 리뷰 목록 -->
+      {% for review in reviews %}
+      <div class='each-review'>
+        <div class='review-header'>
+          <span class='review-user'>{{ review.user }}</span>
+          <span class='review-date'>{{ review.date }}</span>
+        </div>
+        <div class='review-badge'>
+          <span class="badge">
+            지속력:
+            {{ review.power }}
+          </span>
+          <span class="badge">
+            타입:
+            {{ review.type_explain }}
+          </span>
+          <span class="badge ">
+            첫향:
+            {{ review.first_scent }}
+          </span>
+          <span class="badge ">
+            착향:
+            {{ review.put_scent }}
+          </span>
+          <span class="badge">
+            잔향:
+            {{ review.rest_scent }}
+          </span>
+        </div>
+        {% if review.rating == 1 %}
+        <span>★<span class='empty-star'>★★★★</span></span>
+        {% elif review.rating == 2 %}
+        <span>★★<span class='empty-star'>★★★</span></span>
+        {% elif review.rating == 3 %}
+        <span>★★★<span class='empty-star'>★★</span></span>
+        {% elif review.rating == 4 %}
+        <span>★★★★<span class='empty-star'>★</span></span>
+        {% elif review.rating == 5 %}
+        <span>★★★★★</span>
+        {% else %}
+        <span class='empty-star'>★★★★★</span>
+        {% endif %}
+
+        <div class='review-content'>{{ review.content }}</div>
+      </div>
+      {% endfor %}
+      <form class='review-form' accept-charset="UTF-8" action="{% url 'new_review' perfume.pk  %}" method="post">
+        {% csrf_token %}
+        <div class='rating-container'>
+          <span class="text-bold">별점을 선택해주세요</span>
+          <fieldset class='rating'>
+            <input type="radio" name="reviewStar" value="5" id="rate1">
+            <label for="rate1">★</label>
+            <input type="radio" name="reviewStar" value="4" id="rate2">
+            <label for="rate2">★</label>
+            <input type="radio" name="reviewStar" value="3" id="rate3">
+            <label for="rate3">★</label>
+            <input type="radio" name="reviewStar" value="2" id="rate4">
+            <label for="rate4">★</label>
+            <input type="radio" name="reviewStar" value="1" id="rate5">
+            <label for="rate5">★</label>
+          </fieldset>
+        </div>
+        <!-- 선택 항목 -->
+        <div class="btn-group" style="display:inline;">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            타입
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="type_list" value="달콤한">
+                달콤한</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="type_list" value="비누향의">
+                비누향의</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="type_list" value="신선한">
+                신선한</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="type_list" value="무거운">
+                무거운</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="type_list" value="톡쏘는">
+                톡 쏘는</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item">표현 추가하기<br>
+                ( 띄어쓰기로 단어를 구분해주세요 ! )
+                <br>
+                ex. 산뜻한 강렬한 매력적인
+                <br>
+                <input type="text" name="extra_explain"></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="btn-group" style="display:inline;">
+          <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            지속력
+          </button>
+
+          <!-- 하나만 선택하게 만드는 함수 -->
+          <script>
+            function OneCheck(chk) {
+              var obj = document.getElementsByName("power");
+              var num = 0;
+              for (var i = 0; i < obj.length; i++) {
+                if (obj[i] != chk) {
+                  obj[i].checked = false;
+                }
+              }
+              for (var i = 0; i < obj.length; i++) {
+                if (obj[i].checked) {
+                  num++;
+                }
+              }
+              if (!num) {
+                alert('지속력을 한 개 선택하세요');
+                return false;
+              }
+            }
+          </script>
+
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="power" value="good"
+                  onclick="OneCheck(this);">좋아요</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="power" value="moderate"
+                  onclick="OneCheck(this);">적당해요</a>
+            </li>
+            <li>
+              <a class="dropdown-item"><input type="checkbox" name="power" value="bad"
+                  onclick="OneCheck(this);">별로예요</a>
+            </li>
+          </ul>
+        </div>
+
+        <br><br>
+        <span class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">첫향</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" name="first_scent" placeholder='이 향수의 첫 느낌을 표현해주세요.'>
+        </span>
+
+        <span class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">착향</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" name="put_scent" placeholder='이 향수를 본인에게 뿌렸을 때의 느낌을 표현해주세요.'>
+        </span>
+
+        <span class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">잔향</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" name="rest_scent" placeholder='향이 거의 날아갔을 때의 느낌을 표현해주세요.'>
+        </span>
+
+        <span class="review-comment-span">향수에 대한 자유로운 설명을 작성해주세요.</span>
+        <input type="text" class="form-control review-comment" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default" name="content">
+        <button class="btn submit-button" type="submit">리뷰 등록</button>
+      </form>
+    </div>
+  </div>
+</section>
 {% endblock %}

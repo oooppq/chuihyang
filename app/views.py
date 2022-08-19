@@ -21,9 +21,7 @@ def perfumes(request, id):
     perfume = get_object_or_404(Perfume, id=id)
     reviews = Review.objects.filter(perfume=perfume).order_by('-date')
     flavor1 = perfume.flavor
-    print(flavor1)
     rec = Perfume.objects.filter(flavor=flavor1)[1:6]
-    print(rec)
     return render(request, 'perfume.html', {"perfume": perfume, 'reviews': reviews, 'rec':rec})
 
 

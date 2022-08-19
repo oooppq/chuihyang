@@ -15,9 +15,14 @@
 
       </form>
       <br/>
-      <a href="{% provider_login_url 'google' %}">
-        <button class="btn btn-outline-light" type="button" style="background-color:rgb(255, 93, 93);">LogIn with Google</button>
-      </a>
+      <form action="{% provider_login_url 'google' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-google btn-user btn-block">
+          <i class="fab fa-google fa-fw"></i>
+          Login with Google
+        </button>
+      </form>
+
       <br/>
       <a href="{% url 'signup' %}">회원가입</a>
       <!-- <a href="{% provider_login_url 'google' %}">구글 계정으로 로그인</a> -->

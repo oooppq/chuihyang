@@ -55,27 +55,43 @@ $("#explain").html(result[resultscent]["explain"]);
 
 var designate={
    
-      WA:['딥디크-오데썽','에르메스-운자르뎅수르닐','조르지오아르마니-떼울롱'],
-      WB:['에르메스-운자르뎅수르닐','조르지오아르마니-떼울롱','조말론-다크앰버앤진저릴리'],
-      WC:['조르지오아르마니-떼울롱','조말론-다크앰버앤진저릴리','산타마리아노벨라-알바디서울'],
-      WD:['조말론-다크앰버앤진저릴리','산타마리아노벨라-알바디서울','바이레도-블랑쉬'],
+      WA:['딥디크-오데썽','에르메스-운자르뎅수르닐','르라보-떼누아'],
+      WB:['에르메스-운자르뎅수르닐','르라보-떼누아','조말론-다크앰버앤진저릴리'],
+      WC:['르라보-떼누아','조말론-다크앰버앤진저릴리','톰포드-블랙오키드'],
+      WD:['조말론-다크앰버앤진저릴리','톰포드-블랙오키드','바이레도-블랑쉬'],
     
-      MA:['산타마리아노벨라-알바디서울','바이레도-블랑쉬','크리드-실버마운틴워터'],
-      MB:['바이레도-블랑쉬','크리드-실버마운틴워터','아쿠아디파르마-매그놀리아'],
-      MC:['크리드-실버마운틴워터','아쿠아디파르마-매그놀리아','메종마르지엘라-레이지선데이모닝'],
-      MD:['아쿠아디파르마-매그놀리아','메종마르지엘라-레이지선데이모닝','메모파리-인레']
+      MA:['톰포드-블랙오키드','바이레도-블랑쉬','크리드-실버마운틴워터'],
+      MB:['바이레도-블랑쉬','크리드-실버마운틴워터','샤넬-드블루'],
+      MC:['크리드-실버마운틴워터','샤넬-드블루','메종마르지엘라-소울오브더포레스트'],
+      MD:['샤넬-드블루','메종마르지엘라-소울오브더포레스트','딥디크-오데썽']
     
+  }
+  
+  var designate_num={
+      WA:[35808,7572,1973],
+      WB:[7572,1973,6395],
+      WC:[1311,6395,61876],
+      WD:[6395,61876,19209],
+    
+      MA:[61876,19209,18763],
+      MB:[19209,18763,2283],
+      MC:[18763,2283,11519],
+      MD:[2283,11519,35808]
   }
 
   function change(){
     var str=localStorage.getItem('finalscent');
-
+    
 
     for(var i=0; i<3;i++){
       var comb=designate[str][i];
+      var comb_num=designate_num[str][i];
       var pf_name=document.getElementsByClassName("caption")[i];
       var pf_img=document.getElementsByClassName("pf_img")[i];
+      var pf_num=document.getElementsByClassName("info_link")[i];
+
       pf_name.innerText=comb;
+      pf_num.setAttribute('href','/perfumes/'+comb_num);
       pf_img.setAttribute('src','/static/survey/img/'+comb+'.png');
     }
   }

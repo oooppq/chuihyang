@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/category.css' %}">
+<section id="main">
+  <!-- 사이드 메뉴 부분 -->
+  <div class="flex-shrink-0 p-3" style="width: 280px;">
+
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+          data-bs-target="#home-collapse" aria-expanded="true">
+          <p>▶ Season</p>
+        </button>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="">
+                <p>spring</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 1 %}">
+                <p>summer</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 2 %}">
+                <p>fall</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 3 %}">
+                <p>winter</p>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+          data-bs-target="#dashboard-collapse" aria-expanded="false">
+          <p>▶ Flavor</p>
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="{% url 'category_detail' 4 %}">
+                <p>floral</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 5 %}">
+                <p>fresh</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 6 %}">
+                <p>woody</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 7 %}">
+                <p>oriental</p>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+          data-bs-target="#orders-collapse" aria-expanded="false">
+          <p>▶ Situation</p>
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="{% url 'category_detail' 8 %}">
+                <p>unkown</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 9 %}">
+                <p>unkown</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 10 %}">
+                <p>unkown</p>
+              </a></li>
+            <li><a href="{% url 'category_detail' 11 %}">
+                <p>unkown</p>
+              </a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+          data-bs-target="#account-collapse" aria-expanded="false">
+          Account
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#">New...</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    </form>
+  </div>
+  <!-- 향수 목록 -->
+  <div id="page-container">
+    <span class="main-spans mb-3">Spring</span><br><br>
+
+
+    <!-- 정렬 버튼 -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        정렬
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">가격 낮은 순</a></li>
+        <li><a class="dropdown-item" href="#">가격 높은 순</a></li>
+        <li><a class="dropdown-item" href="#">리뷰 많은 순</a></li>
+      </ul>
+    </div><br><br>
+
+
+    {% for perfume in perfumes %}
+    <a href="{% url 'perfumes' perfume.id %}">
+      <div class='perfume-item w-50 d-flex align-items-center mb-1'>
+        {% if perfume.image %}
+        <img src="{{ perfume.image.url }}" class="perfume-img me-2" alt="">
+        {% else %}
+        <img src="{% static 'img/no-image.png' %}" class="perfume-img me-2" alt="">
+        {% endif %}
+        {{ perfume.name }}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% endblock%}

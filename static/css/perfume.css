@@ -1,0 +1,199 @@
+#main {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+#perfume-page-container {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#perfume-page-container a {
+  /* color: black; */
+}
+
+.main-spans {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 30px;
+}
+
+#image-and-info-container {
+  border: 1px solid #ddd;
+  height: 600px;
+
+  margin: 30px;
+  padding: 20px 0 20px 0;
+}
+
+#perfume-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#image-and-info-container .card {
+  color: black;
+}
+#perfume-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#perfume-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#perfume-detail {
+  margin: 20px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#perfume-detail span {
+  font-weight: bolder;
+}
+
+.perfume-detail-content {
+  margin: 10px 0;
+}
+
+.perfume-explain {
+  border: 1px solid #ddd;
+  flex: 1;
+}
+
+#recommendation-container {
+  border: 1px solid #ddd;
+
+  margin: 30px;
+  padding: 20px 0 20px 0;
+}
+
+#recommendation-image-container {
+  height: 100px;
+  list-style: none;
+}
+
+.recommendation-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* 검색 결과 페이지 관련 추가 */
+
+.perfume-item {
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.perfume-item .perfume-img {
+  padding: 0 60px;
+  margin-bottom: 15px;
+}
+
+#reviews-container {
+  /* border-style: solid; */
+  margin: 30px;
+  border: 1px solid #ddd;
+}
+
+.review-filter {
+  border-bottom: 1px solid #ddd;
+  background-color: #f2f2f2;
+}
+.each-review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.review-user {
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.review-date {
+  font-size: 12px;
+}
+
+.empty-star {
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+
+.badge {
+  background-color: rgba(103, 1, 103, 0.6);
+  color: white;
+}
+
+.review-content {
+  margin-top: 10px;
+}
+
+.review-form {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.rating-container {
+  margin: 0 5px 15px 5px;
+}
+
+.rating-container span {
+  margin-right: 10px;
+}
+.rating {
+  display: inline-block;
+  direction: rtl;
+  border: 0;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+.rating label {
+  font-size: 1.5em;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+}
+.rating label:hover {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+.rating label:hover ~ label {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+.rating input[type="radio"]:checked ~ label {
+  text-shadow: 0 0 0 rgba(103, 1, 103, 0.99);
+}
+
+#reviewContents {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: solid 1.5px #d3d3d3;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+}
+.review-comment-span {
+  margin-left: 5px;
+}
+
+.review-comment {
+  margin-top: 10px;
+  height: 150px;
+}
+.review-form .btn {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  margin-left: auto;
+}
+
+.submit-button {
+  margin-top: 10px;
+  width: 100%;
+}

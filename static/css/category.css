@@ -1,0 +1,39 @@
+body {
+  background-image: url(/static/img/bg2.png);
+  background-size: cover;
+}
+
+#main {
+  margin-top: 50px;
+  display: flex;
+}
+
+#main p {
+  color: black
+}
+
+#page-container {
+  padding: 20px;
+  width: 90%;
+  max-height: 800px;
+  border-style: solid;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: black;
+}
+
+.main-spans {
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 70px;
+}
+
+.perfume-item {
+  height: 80px;
+}
+
+.perfume-item .perfume-img {
+  height: 80px;
+  width: 80px;
+}

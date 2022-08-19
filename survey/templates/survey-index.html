@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css'%}">
+  <section id="main">
+
+    <!-- <span id="survey-span">원하시는 테스트를 골라주세요!</span> -->
+    <div id="servey-container" class="">
+      <div class="qbox">
+        <div class='qbox-inner'>
+          <p class="test_title">당신의 성향에 맞는 향수를 찾아보아요!<br>심플하고 직관적인 질문을 통해
+            <br>당신에게 맞는 향수를 찾아드려요.</p>
+          <div>
+            <a href="{% url 'survey1' %}">
+              <button type="button" class="click">
+                start
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="qbox qbox2">
+        <div class='qbox-inner'>
+          <p class="test_title">당신의 스타일에 맞는 향수를 찾아보아요!<br>패션의 완성은 당신의 향기!
+            <br>평소 스타일에 맞는 향수를 추천해드려요.</p>
+          <div>
+            <a href="{% url 'survey3' %}">
+
+              <button type="button" class="click">
+
+                start
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock %}

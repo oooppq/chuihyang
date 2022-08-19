@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <section id="main" class=" d-flex flex-column align-items-center">
+    <div id="login-container" class="d-flex flex-column align-items-center ">
+      <span id="login-span" style="color:black;">로그인</span>
+      <form action="" method="POST" id="login-form" class="d-flex flex-column align-items-center justify-content-center">
+
+        {% csrf_token %}
+        <input type="username" class="username-input form-control" name="username" placeholder="username">
+        <input type="password" class="password-input form-control" name="password" placeholder="password">
+        <input type="submit" value="LOGIN" class="login-btn btn">
+
+      </form>
+      <br/>
+      <a href="{% provider_login_url 'google' %}">
+        <button class="btn btn-outline-light" type="button" style="background-color:rgb(255, 93, 93);">LogIn with Google</button>
+      </a>
+      <br/>
+      <a href="{% url 'signup' %}">회원가입</a>
+      <!-- <a href="{% provider_login_url 'google' %}">구글 계정으로 로그인</a> -->
+    </div>
+
+  </section>
+{% endblock %}

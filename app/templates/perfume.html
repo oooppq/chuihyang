@@ -51,7 +51,7 @@
         {% for obj in rec %}
         <li>
           <a href="{% url 'perfumes' obj.id %}">
-            {% if perfume.image %}
+            {% if obj.image %}
             <img src="{{ obj.image.url }}" alt="fleur-de-peau" class="recommendation-image" />
             {% else %}
             <img src="{% static 'img/no-image.png' %}" alt="no-image" class="recommendation-image" />

@@ -2,6 +2,14 @@
 # General
 --------------------------------------------------------------*/
 @font-face {
+  font-family: "Happiness-Sans-Title";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Hahmlet-ExtraBold";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/Hahmlet-ExtraBold.woff2")
     format("woff2");
@@ -9,9 +17,6 @@
   font-style: normal;
 }
 
-* {
-  font-family: "Hahmlet-ExtraBold";
-}
 body {
   /* font-family: "Open Sans", sans-serif; */
   background-size: cover;
@@ -41,27 +46,30 @@ h6,
 #header {
   padding: 20px;
   /* background-color: #31135c; */
-  background-color: #532496;
-  color: white;
+  background-color: #ffffff;
+  color: #31135c;
+}
+
+body {
+  background-image: url("/static/img/main_bg.jpg");
 }
 
 #header a {
-  color: white;
+  color: #31135c;
 }
 .header-box {
   height: 36px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 #header .logo {
   font-size: 36px;
-  margin: 0;
+  margin: auto;
   padding: 0;
   line-height: 1;
   font-weight: 400;
   letter-spacing: 3px;
+  font-family: "Hahmlet-ExtraBold";
 }
 
 #side-navbar {
@@ -72,6 +80,7 @@ h6,
   #header .logo {
     display: none;
   }
+
   .header-box {
     display: none;
   }
@@ -93,15 +102,22 @@ h6,
     line-height: 1;
     font-weight: 300;
     letter-spacing: 3px;
+    color: #31135c !important;
   }
 }
 
 #category-container {
   list-style: none;
-
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 0 0 0;
-  margin: 10px 0 0 10px;
-  width: 900px;
+  margin: auto;
+  margin-top: 10px;
+  width: 60%;
+}
+
+#category-component {
+  text-align: center;
 }
 
 hr {
@@ -131,7 +147,7 @@ h6,
 }
 
 #main-container {
-  margin-top: 100px;
+  margin-top: 150px;
   width: 90%;
   height: 100%;
   position: relative;
@@ -143,29 +159,35 @@ h6,
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
+  font-family: "Happiness-Sans-Title";
 }
 
 #main h2 {
   margin-bottom: 30px;
   font-size: 24px;
+  font-family: "Happiness-Sans-Title";
 }
 
 .searchbox-form {
   width: 50%;
   min-width: 350px;
-  border: 2px solid #31135c;
+  border: 2px solid #6c6772;
+  border-radius: 10px;
 }
 
 .dropdown {
   width: 20%;
-  background-color: #31135c;
+  background-color: #fafafa;
+  border-radius: 10px;
 }
 
 .dropdown .btn {
-  color: white;
+  color: rgb(118, 118, 118);
 }
+
 .searchbox {
   width: 80%;
+  border-radius: 10px;
 }
 
 .searched-list {
@@ -187,8 +209,9 @@ h6,
     padding: 0;
   }
 }
+
 .searched-list a {
-  color: gray;
+  color: #31135c;
   font-size: 14px;
 }
 

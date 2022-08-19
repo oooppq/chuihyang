@@ -37,6 +37,7 @@
     <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet"/>
 
     <!-- Template Main CSS File -->
+    <link href="{% static 'css/board.css'%}" rel="stylesheet"/>
     <link href="{% static 'css/base.css'%}" rel="stylesheet"/>
 
     <!-- jquery -->
@@ -169,7 +170,7 @@
       </div>
 
       <!-- side-navbar for mobile -->
-      <nav id='side-navbar' class="navbar navbar-dark">
+      <nav id='side-navbar' class="navbar navbar-light">
         <div class="container-fluid p-0 mb-3">
           <a href="{% url 'home' %}">
             <span class="mobile-logo text-light">
@@ -179,7 +180,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="offcanvas offcanvas-end text-bg-dark bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas offcanvas-end text-bg-dark bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
 
               {% if user.is_authenticated %}
@@ -194,7 +195,7 @@
                 </div>
                 {% endif%}
 
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">

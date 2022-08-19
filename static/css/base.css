@@ -29,14 +29,19 @@ h6,
   # Header
   --------------------------------------------------------------*/
 #header {
-  padding: 20px;
+  /* padding: 20px;
   background-color: #31135c;
+  color: white;
+  margin-bottom: 50px; */
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
   color: white;
   margin-bottom: 50px;
 }
 
 #header a {
-  color: white;
+  color: #31135c;
 }
 
 .header-box {
@@ -58,15 +63,19 @@ h6,
   font-weight: 400;
   letter-spacing: 3px;
   width: 20%;
+  font-family: "Hahmlet-ExtraBold" !important;
 }
 
 .searchbox-form {
   width: 50%;
+  border: 1px solid #31135c;
+  border-radius: 3px;
 }
 
 #header .dropdown {
   width: 20%;
-  background-color: #e6eaf5;
+  background-color: #ffffff;
+  border-radius: 4px 0 0 4px;
 }
 
 .dropdown .dropdown-item {
@@ -89,6 +98,7 @@ h6,
   margin: 0 20px 0 0;
   visibility: hidden;
 }
+
 .empty-component {
   width: 20%;
   visibility: hidden;
@@ -114,7 +124,7 @@ h6,
   font-size: 14px;
 }
 #category-container {
-  width: 100%;
+  width: 60%;
   padding-top: 10px;
 }
 
@@ -122,8 +132,9 @@ h6,
   list-style: none;
   color: white;
   padding: 0;
-  margin: 10px 0 0 10px;
-  width: 900px;
+  margin: auto;
+  width: 60%;
+  margin-top: 10px;
 }
 
 .mobile-searchbox-form {
@@ -148,6 +159,11 @@ h6,
   .mobile-searchbox-form {
     display: inline;
   }
+
+  .mobile-searchbox-form .dropdown {
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+  }
   .searched-list {
     width: 90%;
   }
@@ -163,7 +179,9 @@ h6,
     line-height: 1;
     font-weight: 300;
     letter-spacing: 3px;
+    color: #31135c !important;
   }
+
   #category-container {
     display: none;
   }

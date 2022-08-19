@@ -48,5 +48,5 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
-.staticfiles
+project/staticfiles/
 # End of https://www.toptal.com/developers/gitignore/api/macos,virtualenv

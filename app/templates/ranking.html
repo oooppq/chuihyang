@@ -3,8 +3,23 @@
 {% block content %}
   <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
   <section id="main">
-    <div class='ranking-outer-div'>
-      <div class='ranking-container'>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="btn-check ranking-select-button" id="ranking-button1" autocomplete="off">
+      <label class="btn btn-outline-dark" for="ranking-button1">검색어 순위</label>
+
+      <input type="checkbox" class="btn-check ranking-select-button" id="ranking-button2" autocomplete="off" checked="1">
+      <label class="btn btn-outline-dark" for="ranking-button2">인기 향수 순위</label>
+
+      <input type="checkbox" class="btn-check ranking-select-button" id="ranking-button3" autocomplete="off">
+      <label class="btn btn-outline-dark" for="ranking-button3">인기 브랜드 순위</label>
+      <input type="checkbox" class="btn-check ranking-select-button" id="ranking-button4" autocomplete="off">
+      <label class="btn btn-outline-dark" for="ranking-button4">#남친선물 향수 순위</label>
+    </div>
+
+    <div id="reviews-container">
+
+      <!-- 리뷰 목록 -->
+      <div class='ranking-container ranking1' style='display:none;'>
         <div class='ranking-title'>검색어 순위</div>
         <ul class='ranking-list'>
           <li class='group1 ranking-component'>
@@ -40,43 +55,24 @@
           </li>
         </ul>
       </div>
-      <div class='ranking-container'>
+
+      <div class='ranking-container ranking2' style='display:block;'>
         <div class='ranking-title'>인기 향수 순위</div>
         <ul class='ranking-list'>
-          <li class='group1 ranking-component'>
-            <a href="">1.</a>
-          </li>
-          <li class='group1 ranking-component'>
-            <a href="">2.</a>
-          </li>
-          <li class='group1 ranking-component'>
-            <a href="">3.</a>
-          </li>
-          <li class='group1 ranking-component'>
-            <a href="">4.</a>
-          </li>
-          <li class='group1 ranking-component'>
-            <a href="">5.</a>
-          </li>
-
-          <li class='group2 ranking-component'>
-            <a href="">6.</a>
-          </li>
-          <li class='group2 ranking-component'>
-            <a href="">7.</a>
-          </li>
-          <li class='group2 ranking-component'>
-            <a href="">8.</a>
-          </li>
-          <li class='group2 ranking-component'>
-            <a href="">9.</a>
-          </li>
-          <li class='group2 ranking-component'>
-            <a href="">10.</a>
-          </li>
+          {% for perfume in perfumes %}
+            <li class='group1 ranking-component'>
+              <a href="{% url 'perfumes' perfume.pk %}">
+                {% if perfume.image %}
+                  <img class='perfume-img' src="{{ perfume.image.url }}" alt="perfume-image"/>
+                {% else %}
+                  <img class='perfume-img' src="{% static 'img/no-image.png' %}" alt="no-image"/>
+                {% endif %}
+                <span>{{ perfume.name }}</span></a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
-      <div class='ranking-container'>
+      <div class='ranking-container ranking3' style='display:none;'>
         <div class='ranking-title'>인기 브랜드 순위</div>
         <ul class='ranking-list'>
           <li class='group1 ranking-component'>
@@ -112,7 +108,7 @@
           </li>
         </ul>
       </div>
-      <div class='ranking-container'>
+      <div class='ranking-container ranking4' style='display:none;'>
         <div class='ranking-title'>#남친선물 향수 순위</div>
         <ul class='ranking-list'>
           <li class='group1 ranking-component'>
@@ -148,6 +144,7 @@
           </li>
         </ul>
       </div>
+
     </div>
   </section>
   {% endblock%}

@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Perfume, PostModel, Review
 from .forms import PostForm, CommentForm
 from django.utils import timezone
-
+import random
 # library for query
 from django.db.models import Q
 
@@ -155,7 +155,13 @@ def edit(request, post_id):
 
 
 def ranking(request):
-    return render(request, 'ranking.html')
+    
+    l = random.sample(range(1,len(Perfume.objects.filter()) + 1), 10)
+    print(l)
+    perfumes = []
+    for i in l:
+        perfumes.append(get_object_or_404(Perfume,id=i))
+    return render(request, 'ranking.html', {'perfumes':perfumes})
 
 #### show real time search result ####
 

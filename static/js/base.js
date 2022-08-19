@@ -1,5 +1,51 @@
-let windowWidth = document.querySelector(".window-width");
-windowWidth.value = window.innerWidth;
+let rankingSelectButtons = document.querySelectorAll(".ranking-select-button");
+for (let rbtn of rankingSelectButtons) {
+  rbtn.addEventListener("change", (e) => {
+    console.log("change!");
+    if (e.target.checked) {
+      console.log("Checkbox is checked..");
+      let num = e.target.id.length;
+      document.querySelector("#ranking-button1").checked = 0;
+      document.querySelector("#ranking-button2").checked = 0;
+      document.querySelector("#ranking-button3").checked = 0;
+      document.querySelector("#ranking-button4").checked = 0;
+      e.target.checked = 1;
+      console.log(document.querySelector(".ranking" + e.target.id[num - 1]));
+      document.querySelector(".ranking1").style.display = "none";
+      document.querySelector(".ranking2").style.display = "none";
+      document.querySelector(".ranking3").style.display = "none";
+      document.querySelector(".ranking4").style.display = "none";
+      document.querySelector(".ranking" + e.target.id[num - 1]).style.display =
+        "block";
+    }
+    // else {
+    //   console.log("Checkbox is not checked..");
+    //   document.querySelector(".ranking1").display = "none";
+    //   document.querySelector(".ranking2").display = "block";
+    //   document.querySelector(".ranking3").display = "block";
+    //   document.querySelector(".ranking4").display = "block";
+    // }
+  });
+}
+// for (let a in A) {
+//   a.addEventListener("change", (e) => {
+//     if (e.target.checked) {
+//       console.log("Checkbox is checked..");
+//       document.querySelector("#btncheck2").checked = 0;
+//       document.querySelector("#btncheck3").checked = 0;
+//       document.querySelector(".ranking1").display = "none";
+//       document.querySelector(".ranking2").display = "none";
+//       document.querySelector(".ranking3").display = "none";
+//       document.querySelector(".ranking4").display = "none";
+//     } else {
+//       console.log("Checkbox is not checked..");
+//       document.querySelector(".ranking1").display = "none";
+//       document.querySelector(".ranking2").display = "block";
+//       document.querySelector(".ranking3").display = "block";
+//       document.querySelector(".ranking4").display = "block";
+//     }
+//   });
+// }
 
 var body = document.querySelector("body");
 body.addEventListener("click", clickEvent);

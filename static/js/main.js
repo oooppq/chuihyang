@@ -345,6 +345,3 @@ $(function () {
     ratingsField.val(value);
   });
 });
-
-let windowWidth = document.querySelector(".window-width");
-windowWidth.value = window.innerWidth;

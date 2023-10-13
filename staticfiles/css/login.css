@@ -1,0 +1,23 @@
+#main {
+  margin-top: 150px;
+  height: 700px;
+}
+
+#login-span {
+  font-size: 30px;
+  margin: 50px 0 70px 0;
+  color: white;
+}
+
+#login-container {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 80%;
+  height: 500px;
+}
+
+#log .login-btn {
+  width: 100%;
+  border: 1px solid #ddd;
+  margin-top: 30px;
+}

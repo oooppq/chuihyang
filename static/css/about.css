@@ -1,0 +1,37 @@
+body {
+  background: none;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.per_img {
+  margin-top: 15px;
+  width: 50vw;
+}
+
+@keyframes change {
+  from {
+    color: black;
+  }
+
+  to {
+    color: #31135c;
+  }
+}
+
+.strong_title {
+  animation: change 2s forwards;
+}
